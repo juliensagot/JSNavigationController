@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="BasicNavigationBarViewController" customModule="Example" customModuleProvider="target">
+            <connections>
+                <outlet property="backButton" destination="uTS-ZL-wjf" id="i0X-GD-RNm"/>
+                <outlet property="nextButton" destination="JZu-xy-pdU" id="fhh-By-pes"/>
+                <outlet property="titleLabel" destination="hkX-T8-76z" id="hxC-Dz-bwp"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="64"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uTS-ZL-wjf">
+                    <rect key="frame" x="14" y="15" width="70" height="32"/>
+                    <buttonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xHt-ub-xxW">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JZu-xy-pdU">
+                    <rect key="frame" x="397" y="15" width="69" height="32"/>
+                    <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xmc-hI-59Q">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="hkX-T8-76z">
+                    <rect key="frame" x="225" y="24" width="31" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Title" id="jDj-El-sCt">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="uTS-ZL-wjf" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="8p1-Aq-A9B"/>
+                <constraint firstAttribute="trailing" secondItem="JZu-xy-pdU" secondAttribute="trailing" constant="20" id="PBL-0z-46g"/>
+                <constraint firstItem="hkX-T8-76z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uTS-ZL-wjf" secondAttribute="trailing" constant="18" id="Vt4-P0-KbI"/>
+                <constraint firstItem="hkX-T8-76z" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="WQm-Gq-YvO"/>
+                <constraint firstItem="uTS-ZL-wjf" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="cK1-1f-vIZ"/>
+                <constraint firstItem="JZu-xy-pdU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hkX-T8-76z" secondAttribute="trailing" constant="18" id="ghj-F1-msa"/>
+                <constraint firstItem="JZu-xy-pdU" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="jTW-NL-gOh"/>
+                <constraint firstItem="hkX-T8-76z" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" priority="200" id="vwL-tm-yKa"/>
+            </constraints>
+            <point key="canvasLocation" x="537" y="389"/>
+        </customView>
+    </objects>
+</document>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="SecondViewController" customModule="JSNavigationController" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY" customClass="NSVisualEffectView">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ijS-3X-kIP">
+                    <rect key="frame" x="128" y="124" width="224" height="24"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Second View Controller" id="gaO-BH-tkj">
+                        <font key="font" metaFont="systemMedium" size="20"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wzg-kZ-iTZ">
+                    <rect key="frame" x="140" y="13" width="200" height="32"/>
+                    <buttonCell key="cell" type="push" title="Pop to RootViewController" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vda-5V-K3J">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="popToRootVC:" target="-2" id="rTA-WO-BRi"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hra-87-tDW">
+                    <rect key="frame" x="132" y="46" width="217" height="32"/>
+                    <buttonCell key="cell" type="push" title="Push with custom animations" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HDL-o9-UmV">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="pushWithCustomAnimations:" target="-2" id="DJG-3c-86K"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Hra-87-tDW" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="JxR-Ew-lU8"/>
+                <constraint firstItem="wzg-kZ-iTZ" firstAttribute="top" secondItem="Hra-87-tDW" secondAttribute="bottom" constant="12" id="Sws-hF-tPP"/>
+                <constraint firstItem="wzg-kZ-iTZ" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="W4I-3x-ZWp"/>
+                <constraint firstItem="ijS-3X-kIP" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="sPd-Sh-Tc0"/>
+                <constraint firstAttribute="bottom" secondItem="wzg-kZ-iTZ" secondAttribute="bottom" constant="20" id="usD-TB-twg"/>
+                <constraint firstItem="ijS-3X-kIP" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="z4E-1P-x0G"/>
+            </constraints>
+        </customView>
+    </objects>
+</document>
