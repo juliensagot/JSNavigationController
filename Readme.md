@@ -10,7 +10,7 @@
 
 ## Table of Contents  
 * [Usage](#usage)  
-	* [Creating the navigation bar](#creatingNavigationBar)    
+	* [Creating the navigation controller](#creatingNavigationController)    
 	* [Pushing view controllers](#pushingViewControllers)
 	* [Popping view controllers](#poppingViewControllers)
 	* [Custom animations](#customAnimations)
@@ -23,7 +23,7 @@
 ## <a name="usage"></a>Usage
 If you're familiar with `UINavigationController` API, you won't be lost, it's quite the same.
 
-### <a name="creatingNavigationBar"></a>Creating the navigation controller
+### <a name="creatingNavigationController"></a>Creating the navigation controller
 Creating a navigation controller is easy, here is the constructor signature:
 
 ```swift
