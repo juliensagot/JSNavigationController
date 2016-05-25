@@ -109,7 +109,7 @@ class SecondViewController: NSViewController, JSNavigationBarViewControllerProvi
 		let navigationBarAnimation: AnimationBlock = { [weak self] (_, _) in
 			let viewBounds = self?.navigationController?.navigationBarController.containerView?.bounds ?? .zero
 			
-			let slideToBottomTransform = CATransform3DMakeTranslation(0, -NSHeight(viewBounds), 0)
+			let slideToBottomTransform = CATransform3DMakeTranslation(0, -NSHeight(viewBounds) / 2, 0)
 			let slideToBottomAnimation = CABasicAnimation(keyPath: "transform")
 			slideToBottomAnimation.fromValue = NSValue(CATransform3D: CATransform3DIdentity)
 			slideToBottomAnimation.toValue = NSValue(CATransform3D: slideToBottomTransform)
@@ -118,7 +118,7 @@ class SecondViewController: NSViewController, JSNavigationBarViewControllerProvi
 			slideToBottomAnimation.fillMode = kCAFillModeForwards
 			slideToBottomAnimation.removedOnCompletion = false
 			
-			let slideFromTopTransform = CATransform3DMakeTranslation(0, NSHeight(viewBounds), 0)
+			let slideFromTopTransform = CATransform3DMakeTranslation(0, NSHeight(viewBounds) / 2, 0)
 			let slideFromTopAnimation = CABasicAnimation(keyPath: "transform")
 			slideFromTopAnimation.fromValue = NSValue(CATransform3D: slideFromTopTransform)
 			slideFromTopAnimation.toValue = NSValue(CATransform3D: CATransform3DIdentity)
