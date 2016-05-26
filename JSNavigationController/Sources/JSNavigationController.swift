@@ -47,6 +47,8 @@ public class JSNavigationController: JSViewControllersStackManager {
 		if let vc = viewController as? JSNavigationBarViewControllerProvider {
 			vc.navigationController = self
 			navigationBarController.push(viewController: vc.navigationBarViewController(), animation: navigationBarAnimation)
+		} else {
+			navigationBarController.push(viewController: EmptyViewController(), animation: navigationBarAnimation)
 		}
 
 		if let contentAnimation = contentAnimation {
@@ -210,5 +212,19 @@ public class JSNavigationController: JSViewControllersStackManager {
 
 			return ([slideToRightFromCenterAnimation], [slideToRightAnimation])
 		}
+	}
+}
+
+private class EmptyViewController: NSViewController {
+	init() {
+		super.init(nibName: nil, bundle: nil)!
+	}
+
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+
+	private override func loadView() {
+		view = NSView(frame: .zero)
 	}
 }
