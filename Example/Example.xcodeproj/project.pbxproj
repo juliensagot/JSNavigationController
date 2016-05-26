@@ -21,6 +21,8 @@
 		F6CF494F1CF5C575008921D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CF494E1CF5C575008921D3 /* AppDelegate.swift */; };
 		F6CF49511CF5C575008921D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6CF49501CF5C575008921D3 /* Assets.xcassets */; };
 		F6CF49541CF5C575008921D3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6CF49521CF5C575008921D3 /* MainMenu.xib */; };
+		F6EDC38F1CF73BCD00C3791E /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EDC38D1CF73BCD00C3791E /* FourthViewController.swift */; };
+		F6EDC3901CF73BCD00C3791E /* FourthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6EDC38E1CF73BCD00C3791E /* FourthViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +55,8 @@
 		F6CF49501CF5C575008921D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6CF49531CF5C575008921D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		F6CF49551CF5C575008921D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6EDC38D1CF73BCD00C3791E /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		F6EDC38E1CF73BCD00C3791E /* FourthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FourthViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 				F67D71D71CF5E3D1003F8B91 /* FirstViewController */,
 				F67D71DC1CF5E43C003F8B91 /* SecondViewController */,
 				F67D71E11CF5E495003F8B91 /* ThirdViewController */,
+				F6EDC38C1CF73B9100C3791E /* FourthViewController */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -150,6 +155,15 @@
 				F67D71EA1CF5E881003F8B91 /* JSNavigationController.framework */,
 			);
 			path = Example;
+			sourceTree = "<group>";
+		};
+		F6EDC38C1CF73B9100C3791E /* FourthViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F6EDC38D1CF73BCD00C3791E /* FourthViewController.swift */,
+				F6EDC38E1CF73BCD00C3791E /* FourthViewController.xib */,
+			);
+			name = FourthViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +229,7 @@
 				F67D71D61CF5E37C003F8B91 /* BasicNavigationBarViewController.xib in Resources */,
 				F67D71E51CF5E4A4003F8B91 /* ThirdViewController.xib in Resources */,
 				F6CF49541CF5C575008921D3 /* MainMenu.xib in Resources */,
+				F6EDC3901CF73BCD00C3791E /* FourthViewController.xib in Resources */,
 				F67D71DB1CF5E3DF003F8B91 /* FirstViewController.xib in Resources */,
 				F67D71E01CF5E466003F8B91 /* SecondViewController.xib in Resources */,
 			);
@@ -230,6 +245,7 @@
 				F67D71D01CF5E308003F8B91 /* NavigationBarView.swift in Sources */,
 				F6CF494F1CF5C575008921D3 /* AppDelegate.swift in Sources */,
 				F67D71D51CF5E37C003F8B91 /* BasicNavigationBarViewController.swift in Sources */,
+				F6EDC38F1CF73BCD00C3791E /* FourthViewController.swift in Sources */,
 				F67D71DF1CF5E466003F8B91 /* SecondViewController.swift in Sources */,
 				F67D71E41CF5E4A4003F8B91 /* ThirdViewController.swift in Sources */,
 				F67D71DA1CF5E3DF003F8B91 /* FirstViewController.swift in Sources */,

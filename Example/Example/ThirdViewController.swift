@@ -3,6 +3,7 @@ import JSNavigationController
 
 private extension Selector {
 	static let popVC = #selector(ThirdViewController.popVC)
+	static let pushToFourthVC = #selector(ThirdViewController.pushFourthVC(_:))
 }
 
 class ThirdViewController: NSViewController, JSNavigationBarViewControllerProvider {
@@ -34,9 +35,10 @@ class ThirdViewController: NSViewController, JSNavigationBarViewControllerProvid
 
 		// NavigationBar
 		navigationBarVC.titleLabel?.stringValue = "Third VC"
-		navigationBarVC.nextButton?.hidden = true
 		navigationBarVC.backButton?.action = .popVC
 		navigationBarVC.backButton?.target = self
+		navigationBarVC.nextButton?.action = .pushToFourthVC
+		navigationBarVC.nextButton?.target = self
 	}
 
 	override func viewWillDisappear() {
@@ -146,5 +148,11 @@ class ThirdViewController: NSViewController, JSNavigationBarViewControllerProvid
 
 	func popVC() {
 		navigationController?.popViewController(animated: true)
+	}
+
+	@IBAction func pushFourthVC(_: AnyObject?) {
+		let fourthVC = FourthViewController()
+		fourthVC.navigationController = navigationController
+		navigationController?.push(viewController: fourthVC, animated: true)
 	}
 }

@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="ThirdViewController" customModule="JSNavigationController" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="ThirdViewController" customModule="Example" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>

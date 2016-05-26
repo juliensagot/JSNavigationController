@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="FourthViewController" customModule="Example" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rAZ-Gz-IxO">
+                    <rect key="frame" x="133" y="124" width="214" height="24"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Fourth View Controller" id="qcg-M8-pHP">
+                        <font key="font" metaFont="systemMedium" size="20"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3tr-pF-nJE">
+                    <rect key="frame" x="127" y="13" width="227" height="32"/>
+                    <buttonCell key="cell" type="push" title="Pop to previous view controller" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1aL-Th-DV0">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="popVC:" target="-2" id="3WG-gf-HJI"/>
+                    </connections>
+                </button>
+                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="s1f-Ij-MoX">
+                    <rect key="frame" x="56" y="82" width="368" height="34"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="This view controller does not conform to JSNavigationBarViewControllerProvider protocol." id="hrn-9o-tJV">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="3tr-pF-nJE" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="0OR-2I-IWt"/>
+                <constraint firstItem="s1f-Ij-MoX" firstAttribute="top" secondItem="rAZ-Gz-IxO" secondAttribute="bottom" constant="8" id="17a-TN-pgz"/>
+                <constraint firstItem="s1f-Ij-MoX" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="58" id="8bn-1L-QHU"/>
+                <constraint firstItem="rAZ-Gz-IxO" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="U6o-6r-Q09"/>
+                <constraint firstAttribute="bottom" secondItem="3tr-pF-nJE" secondAttribute="bottom" constant="20" id="daZ-br-R4Z"/>
+                <constraint firstAttribute="trailing" secondItem="s1f-Ij-MoX" secondAttribute="trailing" constant="58" id="gE9-9S-HSi"/>
+                <constraint firstItem="rAZ-Gz-IxO" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="sd3-0j-W3q"/>
+            </constraints>
+        </customView>
+    </objects>
+</document>
