@@ -15,6 +15,7 @@
 		F67D71CB1CF5E1FA003F8B91 /* JSNavigationBarViewControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67D71C71CF5E1FA003F8B91 /* JSNavigationBarViewControllerProvider.swift */; };
 		F67D71CC1CF5E1FA003F8B91 /* JSNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67D71C81CF5E1FA003F8B91 /* JSNavigationController.swift */; };
 		F67D71CD1CF5E1FA003F8B91 /* JSViewControllersStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67D71C91CF5E1FA003F8B91 /* JSViewControllersStackManager.swift */; };
+		F6E5D0B01CF88C4C000874A3 /* JSNavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E5D0AF1CF88C4C000874A3 /* JSNavigationControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		F67D71C71CF5E1FA003F8B91 /* JSNavigationBarViewControllerProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSNavigationBarViewControllerProvider.swift; path = Sources/JSNavigationBarViewControllerProvider.swift; sourceTree = "<group>"; };
 		F67D71C81CF5E1FA003F8B91 /* JSNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSNavigationController.swift; path = Sources/JSNavigationController.swift; sourceTree = "<group>"; };
 		F67D71C91CF5E1FA003F8B91 /* JSViewControllersStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSViewControllersStackManager.swift; path = Sources/JSViewControllersStackManager.swift; sourceTree = "<group>"; };
+		F6E5D0AF1CF88C4C000874A3 /* JSNavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSNavigationControllerDelegate.swift; path = Sources/JSNavigationControllerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				F67D71C81CF5E1FA003F8B91 /* JSNavigationController.swift */,
+				F6E5D0AF1CF88C4C000874A3 /* JSNavigationControllerDelegate.swift */,
 				F67D71C61CF5E1FA003F8B91 /* JSNavigationBarController.swift */,
 				F67D71C71CF5E1FA003F8B91 /* JSNavigationBarViewControllerProvider.swift */,
 				F67D71C91CF5E1FA003F8B91 /* JSViewControllersStackManager.swift */,
@@ -221,6 +224,7 @@
 				F67D71CA1CF5E1FA003F8B91 /* JSNavigationBarController.swift in Sources */,
 				F67D71CD1CF5E1FA003F8B91 /* JSViewControllersStackManager.swift in Sources */,
 				F67D71CC1CF5E1FA003F8B91 /* JSNavigationController.swift in Sources */,
+				F6E5D0B01CF88C4C000874A3 /* JSNavigationControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

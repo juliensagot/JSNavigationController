@@ -15,6 +15,7 @@ public class JSNavigationController: JSViewControllersStackManager {
 	}
 	public var viewControllers: [NSViewController] = []
 	public let navigationBarController: JSNavigationBarController
+	public weak var delegate: JSNavigationControllerDelegate?
 
 	// MARK: - Creating Navigation Controllers
 	public init(rootViewController: NSViewController, contentView: NSView, navigationBarView: NSView) {
@@ -34,6 +35,7 @@ public class JSNavigationController: JSViewControllersStackManager {
 		guard !Set(viewControllers).contains(viewController) else { return }
 
 		viewControllers.append(viewController)
+		delegate?.navigationController(self, willShowViewController: viewController, animated: (contentAnimation != nil))
 
 		// Remove old view
 		if let previousViewController = previousViewController where contentAnimation == nil {
@@ -56,9 +58,12 @@ public class JSNavigationController: JSViewControllersStackManager {
 			CATransaction.setCompletionBlock { [weak self] in
 				self?.previousViewController?.view.removeFromSuperview()
 				self?.previousViewController?.view.layer?.removeAllAnimations()
+				self?.delegate?.navigationController(self!, didShowViewController: viewController, animated: true)
 			}
 			animatePush(contentAnimation)
 			CATransaction.commit()
+		} else {
+			delegate?.navigationController(self, didShowViewController: viewController, animated: false)
 		}
 	}
 
@@ -82,6 +87,8 @@ public class JSNavigationController: JSViewControllersStackManager {
 		guard let topViewController = topViewController else { return }
 		guard topViewController != rootViewController else { return }
 
+		delegate?.navigationController(self, willShowViewController: viewController, animated: (contentAnimation != nil))
+		
 		let viewControllerPosition = viewControllers.indexOf(viewController)
 
 		// Add the new view
@@ -99,6 +106,7 @@ public class JSNavigationController: JSViewControllersStackManager {
 				self.topViewController?.view.layer?.removeAllAnimations()
 				let range = (viewControllerPosition! + 1)..<self.viewControllers.count
 				self.viewControllers.removeRange(range)
+				self.delegate?.navigationController(self, didShowViewController: viewController, animated: true)
 			}
 			animatePop(toView: viewController.view, animation: contentAnimation)
 			CATransaction.commit()
@@ -106,6 +114,7 @@ public class JSNavigationController: JSViewControllersStackManager {
 			topViewController.view.removeFromSuperview()
 			let range = (viewControllerPosition! + 1)..<self.viewControllers.count
 			viewControllers.removeRange(range)
+			delegate?.navigationController(self, didShowViewController: viewController, animated: false)
 		}
 	}
 
