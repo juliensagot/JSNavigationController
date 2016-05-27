@@ -15,17 +15,17 @@ class FourthViewController: NSViewController {
 	// MARK: - View Lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		view.translatesAutoresizingMaskIntoConstraints = false
 		view.wantsLayer = true
 		view.layer?.backgroundColor = NSColor(deviceRed: 120/255.0, green: 163/255.0, blue: 255/255.0, alpha: 1.0).CGColor
 	}
 
 	override func viewDidAppear() {
 		super.viewDidAppear()
-		view.translatesAutoresizingMaskIntoConstraints = false
 		view.superview?.addConstraints(viewConstraints())
 	}
 
-	override func viewWillDisappear() {
+	override func viewDidDisappear() {
 		view.superview?.removeConstraints(viewConstraints())
 	}
 

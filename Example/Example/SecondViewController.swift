@@ -22,6 +22,7 @@ class SecondViewController: NSViewController, JSNavigationBarViewControllerProvi
 	// MARK: - View Lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		view.translatesAutoresizingMaskIntoConstraints = false
 		view.wantsLayer = true
 		if let view = view as? NSVisualEffectView {
 			view.material = .MediumLight
@@ -30,7 +31,6 @@ class SecondViewController: NSViewController, JSNavigationBarViewControllerProvi
 
 	override func viewDidAppear() {
 		super.viewDidAppear()
-		view.translatesAutoresizingMaskIntoConstraints = false
 		view.superview?.addConstraints(viewConstraints())
 
 		// NavigationBar
@@ -41,7 +41,7 @@ class SecondViewController: NSViewController, JSNavigationBarViewControllerProvi
 		navigationBarVC.nextButton?.target = self
 	}
 
-	override func viewWillDisappear() {
+	override func viewDidDisappear() {
 		view.superview?.removeConstraints(viewConstraints())
 	}
 

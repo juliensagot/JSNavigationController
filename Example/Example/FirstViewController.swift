@@ -21,13 +21,13 @@ class FirstViewController: NSViewController, JSNavigationBarViewControllerProvid
 	// MARK: - View Lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		view.translatesAutoresizingMaskIntoConstraints = false
 		view.wantsLayer = true
 		view.layer?.backgroundColor = NSColor(deviceRed: 240/255, green: 240/255, blue: 240/255, alpha: 1.0).CGColor
 	}
 
 	override func viewDidAppear() {
 		super.viewDidAppear()
-		view.translatesAutoresizingMaskIntoConstraints = false
 		view.superview?.addConstraints(viewConstraints())
 
 		// NavigationBar
@@ -37,7 +37,7 @@ class FirstViewController: NSViewController, JSNavigationBarViewControllerProvid
 		navigationBarVC.nextButton?.target = self
 	}
 
-	override func viewWillDisappear() {
+	override func viewDidDisappear() {
 		view.superview?.removeConstraints(viewConstraints())
 	}
 
