@@ -14,6 +14,7 @@
 	* [Pushing view controllers](#pushingViewControllers)
 	* [Popping view controllers](#poppingViewControllers)
 	* [Custom animations](#customAnimations)
+	* [Delegate](#delegate)
 * [Examples](#examples)
 * [Requirements](#requirements)    
 * [Integration](#integration)
@@ -115,6 +116,16 @@ let animation: AnimationBlock = { (_, _) in
 	fadeOutAnimation.removedOnCompletion = false
 
 	return ([fadeOutAnimation], [fadeInAnimation])
+}
+```
+
+---
+
+### <a name="delegate"></a>Delegate
+```swift
+public protocol JSNavigationControllerDelegate: class {
+	func navigationController(navigationController: JSNavigationController, willShowViewController viewController: NSViewController, animated: Bool)
+	func navigationController(navigationController: JSNavigationController, didShowViewController viewController: NSViewController, animated: Bool)
 }
 ```
 
