@@ -141,4 +141,4 @@ See the `Example` project in the .zip file.
 Add `github "juliensagot/JSNavigationController"` to your Cartfile.
 
 ### <a name="manualIntegration"></a>Manually
-Download the .zip fle and add the content of `JSNavigationController/Sources` folder to your project.
+Download the .zip file and add the content of `JSNavigationController/Sources` folder to your project.
