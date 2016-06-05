@@ -12,7 +12,7 @@ public typealias AnimationBlock = (fromView: NSView?, toView: NSView?) -> (fromV
 
 public protocol JSViewControllersStackManager: class {
 	/// The view in which views will be pushed.
-	var containerView: NSView? { get }
+	var contentView: NSView? { get set }
 	/// The view controllers currently on the navigation stack.
 	var viewControllers: [NSViewController] { get set }
 	/// The view controller at the top of the navigation stack.
@@ -134,7 +134,7 @@ public extension JSViewControllersStackManager {
 		}
 
 		// Add the new view
-		containerView?.addSubview(viewController.view, positioned: .Above, relativeTo: previousViewController?.view)
+		contentView?.addSubview(viewController.view, positioned: .Above, relativeTo: previousViewController?.view)
 
 		if let animation = animation {
 			CATransaction.begin()
@@ -178,7 +178,7 @@ public extension JSViewControllersStackManager {
 		let viewControllerPosition = viewControllers.indexOf(viewController)
 
 		// Add the new view
-		containerView?.addSubview(viewController.view, positioned: .Below, relativeTo: topViewController.view)
+		contentView?.addSubview(viewController.view, positioned: .Below, relativeTo: topViewController.view)
 
 		if let animation = animation {
 			CATransaction.begin()
