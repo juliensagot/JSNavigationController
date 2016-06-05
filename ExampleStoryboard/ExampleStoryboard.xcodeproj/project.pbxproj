@@ -8,18 +8,41 @@
 
 /* Begin PBXBuildFile section */
 		F6732F421CFF29050086D620 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6732F411CFF29050086D620 /* AppDelegate.swift */; };
-		F6732F441CFF29050086D620 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6732F431CFF29050086D620 /* ViewController.swift */; };
 		F6732F461CFF29050086D620 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6732F451CFF29050086D620 /* Assets.xcassets */; };
 		F6732F491CFF29050086D620 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6732F471CFF29050086D620 /* Main.storyboard */; };
+		F6732F511CFF29A20086D620 /* JSNavigationController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6732F501CFF29A20086D620 /* JSNavigationController.framework */; };
+		F6732F521CFF29A20086D620 /* JSNavigationController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F6732F501CFF29A20086D620 /* JSNavigationController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F67A0AFB1CFF4AE900F221C4 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67A0AFA1CFF4AE900F221C4 /* NavigationController.swift */; };
+		F67A0AFD1CFF7E8C00F221C4 /* BasicNavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67A0AFC1CFF7E8C00F221C4 /* BasicNavigationBarViewController.swift */; };
+		F67A0AFF1CFF854300F221C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67A0AFE1CFF854300F221C4 /* ViewController.swift */; };
+		F67A0B031CFF85D300F221C4 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67A0B021CFF85D300F221C4 /* NavigationBarView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F6732F531CFF29A20086D620 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F6732F521CFF29A20086D620 /* JSNavigationController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F6732F3E1CFF29050086D620 /* ExampleStoryboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleStoryboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6732F411CFF29050086D620 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F6732F431CFF29050086D620 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F6732F451CFF29050086D620 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6732F481CFF29050086D620 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F6732F4A1CFF29050086D620 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6732F501CFF29A20086D620 /* JSNavigationController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JSNavigationController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F67A0AFA1CFF4AE900F221C4 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		F67A0AFC1CFF7E8C00F221C4 /* BasicNavigationBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicNavigationBarViewController.swift; sourceTree = "<group>"; };
+		F67A0AFE1CFF854300F221C4 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F67A0B021CFF85D300F221C4 /* NavigationBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6732F511CFF29A20086D620 /* JSNavigationController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,10 +77,14 @@
 			isa = PBXGroup;
 			children = (
 				F6732F411CFF29050086D620 /* AppDelegate.swift */,
-				F6732F431CFF29050086D620 /* ViewController.swift */,
+				F67A0AFA1CFF4AE900F221C4 /* NavigationController.swift */,
+				F67A0AFC1CFF7E8C00F221C4 /* BasicNavigationBarViewController.swift */,
+				F67A0B021CFF85D300F221C4 /* NavigationBarView.swift */,
+				F67A0AFE1CFF854300F221C4 /* ViewController.swift */,
 				F6732F451CFF29050086D620 /* Assets.xcassets */,
 				F6732F471CFF29050086D620 /* Main.storyboard */,
 				F6732F4A1CFF29050086D620 /* Info.plist */,
+				F6732F501CFF29A20086D620 /* JSNavigationController.framework */,
 			);
 			path = ExampleStoryboard;
 			sourceTree = "<group>";
@@ -71,6 +99,7 @@
 				F6732F3A1CFF29050086D620 /* Sources */,
 				F6732F3B1CFF29050086D620 /* Frameworks */,
 				F6732F3C1CFF29050086D620 /* Resources */,
+				F6732F531CFF29A20086D620 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,8 +160,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6732F441CFF29050086D620 /* ViewController.swift in Sources */,
 				F6732F421CFF29050086D620 /* AppDelegate.swift in Sources */,
+				F67A0AFB1CFF4AE900F221C4 /* NavigationController.swift in Sources */,
+				F67A0AFD1CFF7E8C00F221C4 /* BasicNavigationBarViewController.swift in Sources */,
+				F67A0AFF1CFF854300F221C4 /* ViewController.swift in Sources */,
+				F67A0B031CFF85D300F221C4 /* NavigationBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +307,7 @@
 				F6732F4F1CFF29050086D620 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
