@@ -107,7 +107,7 @@ class SecondViewController: NSViewController, JSNavigationBarViewControllerProvi
 			return ([slideToBottomAnimation], [slideFromTopAnimation])
 		}
 		let navigationBarAnimation: AnimationBlock = { [weak self] (_, _) in
-			let viewBounds = self?.navigationController?.navigationBarController.containerView?.bounds ?? .zero
+			let viewBounds = self?.navigationController?.navigationBarController?.contentView?.bounds ?? .zero
 			
 			let slideToBottomTransform = CATransform3DMakeTranslation(0, -NSHeight(viewBounds) / 2, 0)
 			let slideToBottomAnimation = CABasicAnimation(keyPath: "transform")

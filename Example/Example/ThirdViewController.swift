@@ -78,7 +78,7 @@ class ThirdViewController: NSViewController, JSNavigationBarViewControllerProvid
 	// MARK: - Actions
 	@IBAction func popWithCustomAnimations(_: AnyObject?) {
 		let contentAnimation: AnimationBlock = { [weak self] (viewToHide, viewToShow) in
-			let viewBounds = self?.navigationController?.containerView?.bounds ?? .zero
+			let viewBounds = self?.navigationController?.contentView?.bounds ?? .zero
 
 			let slideFromBottomTransform = CATransform3DMakeTranslation(0, -NSHeight(viewBounds), 0)
 			let slideFromBottomAnimation = CABasicAnimation(keyPath: "transform")
@@ -101,7 +101,7 @@ class ThirdViewController: NSViewController, JSNavigationBarViewControllerProvid
 			return ([slideToTopAnimation], [slideFromBottomAnimation])
 		}
 		let navigationBarAnimation: AnimationBlock = { [weak self] (_, _) in
-			let viewBounds = self?.navigationController?.navigationBarController.containerView?.bounds ?? .zero
+			let viewBounds = self?.navigationController?.navigationBarController?.contentView?.bounds ?? .zero
 			
 			let slideFromBottomTransform = CATransform3DMakeTranslation(0, -NSHeight(viewBounds) / 2, 0)
 			let slideFromBottomAnimation = CABasicAnimation(keyPath: "transform")
