@@ -8,26 +8,55 @@
 
 import AppKit
 
-public class JSNavigationController: JSViewControllersStackManager {
-	private weak var contentView: NSView?
-	public var containerView: NSView? {
-		return contentView
-	}
+public class JSNavigationController: NSViewController, JSViewControllersStackManager {
+	@IBOutlet weak public var contentView: NSView?
+	@IBOutlet public var navigationBarView: NSView?
 	public var viewControllers: [NSViewController] = []
-	public let navigationBarController: JSNavigationBarController
+	public var navigationBarController: JSNavigationBarController?
 	public weak var delegate: JSNavigationControllerDelegate?
 
 	// MARK: - Creating Navigation Controllers
 	public init(rootViewController: NSViewController, contentView: NSView, navigationBarView: NSView) {
 		self.contentView = contentView
 		navigationBarController = JSNavigationBarController(view: navigationBarView)
+		super.init(nibName: nil, bundle: nil)!
 		push(viewController: rootViewController, animated: false)
 	}
 
 	public init(viewControllers: [NSViewController], contentView: NSView, navigationBarView: NSView) {
 		self.contentView = contentView
 		navigationBarController = JSNavigationBarController(view: navigationBarView)
+		super.init(nibName: nil, bundle: nil)!
 		set(viewControllers: viewControllers, animated: false)
+	}
+	
+	required public init?(coder: NSCoder) {
+		super.init(coder: coder)
+	}
+
+	// MARK: - View Lifecycle
+	public override func loadView() {
+		if nibName != nil {
+			super.loadView()
+		} else {
+			view = NSView(frame: .zero)
+		}
+	}
+
+	public override func viewDidAppear() {
+		super.viewDidAppear()
+		guard nibName != nil else { return }
+		guard let segues = valueForKey("segueTemplates") as? [NSObject] else { return } // Undocumented
+
+		if let navigationBarView = navigationBarView {
+			navigationBarController = JSNavigationBarController(view: navigationBarView)
+		}
+
+		for segue in segues {
+			if let id = segue.valueForKey("identifier") as? String {
+				performSegueWithIdentifier(id, sender: self)
+			}
+		}
 	}
 
 	// MARK: - Pushing
@@ -43,14 +72,14 @@ public class JSNavigationController: JSViewControllersStackManager {
 		}
 
 		// Add the new view
-		containerView?.addSubview(viewController.view, positioned: .Above, relativeTo: previousViewController?.view)
+		contentView?.addSubview(viewController.view, positioned: .Above, relativeTo: previousViewController?.view)
 
 		// NavigationBar
 		if let vc = viewController as? JSNavigationBarViewControllerProvider {
 			vc.navigationController = self
-			navigationBarController.push(viewController: vc.navigationBarViewController(), animation: navigationBarAnimation)
+			navigationBarController?.push(viewController: vc.navigationBarViewController(), animation: navigationBarAnimation)
 		} else {
-			navigationBarController.push(viewController: EmptyViewController(), animation: navigationBarAnimation)
+			navigationBarController?.push(viewController: EmptyViewController(), animation: navigationBarAnimation)
 		}
 
 		if let contentAnimation = contentAnimation {
@@ -68,7 +97,7 @@ public class JSNavigationController: JSViewControllersStackManager {
 	}
 
 	public func push(viewController viewController: NSViewController, animation: AnimationBlock?) {
-		let navBarAnimation: AnimationBlock? = animation != nil ? navigationBarController.defaultPushAnimation() : nil
+		let navBarAnimation: AnimationBlock? = animation != nil ? navigationBarController?.defaultPushAnimation() : nil
 		push(viewController: viewController, contentAnimation: animation, navigationBarAnimation: navBarAnimation)
 	}
 
@@ -92,11 +121,11 @@ public class JSNavigationController: JSViewControllersStackManager {
 		let viewControllerPosition = viewControllers.indexOf(viewController)
 
 		// Add the new view
-		containerView?.addSubview(viewController.view, positioned: .Below, relativeTo: topViewController.view)
+		contentView?.addSubview(viewController.view, positioned: .Below, relativeTo: topViewController.view)
 
 		// NavigationBar
 		if let vc = viewController as? JSNavigationBarViewControllerProvider {
-			navigationBarController.pop(toViewController: vc.navigationBarViewController(), animation: navigationBarAnimation)
+			navigationBarController?.pop(toViewController: vc.navigationBarViewController(), animation: navigationBarAnimation)
 		}
 
 		if let contentAnimation = contentAnimation {
@@ -119,7 +148,7 @@ public class JSNavigationController: JSViewControllersStackManager {
 	}
 
 	public func pop(toViewController viewController: NSViewController, animation: AnimationBlock?) {
-		let navBarAnimation: AnimationBlock? = animation != nil ? navigationBarController.defaultPopAnimation() : nil
+		let navBarAnimation: AnimationBlock? = animation != nil ? navigationBarController?.defaultPopAnimation() : nil
 		pop(toViewController: viewController, contentAnimation: animation, navigationBarAnimation: navBarAnimation)
 	}
 
@@ -137,7 +166,7 @@ public class JSNavigationController: JSViewControllersStackManager {
 	}
 
 	public func popViewController(animation animation: AnimationBlock?) {
-		let navBarAnimation: AnimationBlock? = animation != nil ? navigationBarController.defaultPopAnimation() : nil
+		let navBarAnimation: AnimationBlock? = animation != nil ? navigationBarController?.defaultPopAnimation() : nil
 		popViewController(contentAnimation: animation, navigationBarAnimation: navBarAnimation)
 	}
 
@@ -158,7 +187,7 @@ public class JSNavigationController: JSViewControllersStackManager {
 	}
 
 	public func popToRootViewController(animation animation: AnimationBlock?) {
-		let navBarAnimation: AnimationBlock? = animation != nil ? navigationBarController.defaultPopAnimation() : nil
+		let navBarAnimation: AnimationBlock? = animation != nil ? navigationBarController?.defaultPopAnimation() : nil
 		popToRootViewController(contentAnimation: animation, navigationBarAnimation: navBarAnimation)
 	}
 
@@ -173,7 +202,7 @@ public class JSNavigationController: JSViewControllersStackManager {
 	// MARK: - Animations
 	public func defaultPushAnimation() -> AnimationBlock {
 		return { [weak self] (_, _) in
-			let containerViewBounds = self?.containerView?.bounds ?? .zero
+			let containerViewBounds = self?.contentView?.bounds ?? .zero
 
 			let slideToLeftTransform = CATransform3DMakeTranslation(-NSWidth(containerViewBounds) / 2, 0, 0)
 			let slideToLeftAnimation = CABasicAnimation(keyPath: "transform")
@@ -199,7 +228,7 @@ public class JSNavigationController: JSViewControllersStackManager {
 
 	public func defaultPopAnimation() -> AnimationBlock {
 		return { [weak self] (_, _) in
-			let containerViewBounds = self?.containerView?.bounds ?? .zero
+			let containerViewBounds = self?.contentView?.bounds ?? .zero
 
 			let slideToRightTransform = CATransform3DMakeTranslation(-NSWidth(containerViewBounds) / 2, 0, 0)
 			let slideToRightAnimation = CABasicAnimation(keyPath: "transform")
@@ -222,8 +251,17 @@ public class JSNavigationController: JSViewControllersStackManager {
 			return ([slideToRightFromCenterAnimation], [slideToRightAnimation])
 		}
 	}
+
+	// MARK: - Storyboard
+	public override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+		guard segue.identifier == "rootViewController" else { return }
+		guard let destinationController = segue.destinationController as? NSViewController else { return }
+
+		push(viewController: destinationController, animated: false)
+	}
 }
 
+// MARK: -
 private class EmptyViewController: NSViewController {
 	init() {
 		super.init(nibName: nil, bundle: nil)!

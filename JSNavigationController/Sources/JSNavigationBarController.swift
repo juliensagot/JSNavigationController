@@ -9,11 +9,8 @@
 import AppKit
 
 public class JSNavigationBarController: JSViewControllersStackManager {
-	private weak var contentView: NSView?
 	public var viewControllers: [NSViewController] = []
-	public var containerView: NSView? {
-		return contentView
-	}
+	public weak var contentView: NSView?
 
 	// MARK: - Initializers
 	public init(view: NSView) {
@@ -23,7 +20,7 @@ public class JSNavigationBarController: JSViewControllersStackManager {
 	// MARK: - Default animations
 	public func defaultPushAnimation() -> AnimationBlock {
 		return { [weak self] (_, _) in
-			let containerViewBounds = self?.containerView?.bounds ?? .zero
+			let containerViewBounds = self?.contentView?.bounds ?? .zero
 
 			let slideToLeftTransform = CATransform3DMakeTranslation(-NSWidth(containerViewBounds) / 2, 0, 0)
 			let slideToLeftAnimation = CABasicAnimation(keyPath: "transform")
@@ -65,7 +62,7 @@ public class JSNavigationBarController: JSViewControllersStackManager {
 
 	public func defaultPopAnimation() -> AnimationBlock {
 		return { [weak self] (_, _) in
-			let containerViewBounds = self?.containerView?.bounds ?? .zero
+			let containerViewBounds = self?.contentView?.bounds ?? .zero
 
 			let slideToRightTransform = CATransform3DMakeTranslation(-NSWidth(containerViewBounds) / 2, 0, 0)
 			let slideToRightAnimation = CABasicAnimation(keyPath: "transform")
