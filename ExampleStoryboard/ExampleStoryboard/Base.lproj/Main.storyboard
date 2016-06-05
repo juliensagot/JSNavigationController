@@ -802,7 +802,7 @@
                 </viewController>
                 <customObject id="ub5-KI-CaN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="584" y="1327"/>
+            <point key="canvasLocation" x="524" y="1327"/>
         </scene>
         <!--Basic Navigation Bar View Controller-->
         <scene sceneID="c65-I6-zeY">
@@ -852,7 +852,7 @@
                 </viewController>
                 <customObject id="rOP-c8-Def" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="584" y="1602"/>
+            <point key="canvasLocation" x="524" y="1602"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="344-PZ-VJr">
@@ -882,7 +882,7 @@
                 </viewController>
                 <customObject id="dFX-Xo-6fR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1183" y="1327"/>
+            <point key="canvasLocation" x="1043" y="1327"/>
         </scene>
         <!--Basic Navigation Bar View Controller-->
         <scene sceneID="FdD-3h-sii">
@@ -922,7 +922,7 @@
                 </viewController>
                 <customObject id="yFN-29-pes" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1183" y="1602"/>
+            <point key="canvasLocation" x="1043" y="1602"/>
         </scene>
     </scenes>
 </document>

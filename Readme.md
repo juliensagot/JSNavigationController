@@ -15,6 +15,7 @@
 	* [Popping view controllers](#poppingViewControllers)
 	* [Custom animations](#customAnimations)
 	* [Delegate](#delegate)
+	* [Storyboard](#storyboard)
 * [Examples](#examples)
 * [Requirements](#requirements)    
 * [Integration](#integration)
@@ -129,6 +130,10 @@ public protocol JSNavigationControllerDelegate: class {
 	func navigationController(navigationController: JSNavigationController, didShowViewController viewController: NSViewController, animated: Bool)
 }
 ```
+
+### <a name="storyboard"></a>Storyboard
+See the `ExampleStoryboard` project.
+
 
 ## Examples
 See the `Example` project in the .zip file.
