@@ -11,11 +11,13 @@
 		F64FD2C11CF0740800D93BED /* JSNavigationController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64FD2B61CF0740800D93BED /* JSNavigationController.framework */; };
 		F64FD2DB1CF076D700D93BED /* JSNavigationBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64FD2D91CF076D700D93BED /* JSNavigationBarControllerTests.swift */; };
 		F64FD2DC1CF076D700D93BED /* JSNavigationControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64FD2DA1CF076D700D93BED /* JSNavigationControllerTests.swift */; };
+		F655C1641D00ABE3005208A1 /* JSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F655C1631D00ABE3005208A1 /* JSViewController.swift */; };
 		F67D71CA1CF5E1FA003F8B91 /* JSNavigationBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67D71C61CF5E1FA003F8B91 /* JSNavigationBarController.swift */; };
 		F67D71CB1CF5E1FA003F8B91 /* JSNavigationBarViewControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67D71C71CF5E1FA003F8B91 /* JSNavigationBarViewControllerProvider.swift */; };
 		F67D71CC1CF5E1FA003F8B91 /* JSNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67D71C81CF5E1FA003F8B91 /* JSNavigationController.swift */; };
 		F67D71CD1CF5E1FA003F8B91 /* JSViewControllersStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67D71C91CF5E1FA003F8B91 /* JSViewControllersStackManager.swift */; };
 		F6E5D0B01CF88C4C000874A3 /* JSNavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E5D0AF1CF88C4C000874A3 /* JSNavigationControllerDelegate.swift */; };
+		F6ED5F5F1CFF488300CF7222 /* JSNavigationControllerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ED5F5E1CFF488300CF7222 /* JSNavigationControllerSegue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +38,13 @@
 		F64FD2C71CF0740800D93BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F64FD2D91CF076D700D93BED /* JSNavigationBarControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSNavigationBarControllerTests.swift; sourceTree = "<group>"; };
 		F64FD2DA1CF076D700D93BED /* JSNavigationControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSNavigationControllerTests.swift; sourceTree = "<group>"; };
+		F655C1631D00ABE3005208A1 /* JSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSViewController.swift; path = Sources/JSViewController.swift; sourceTree = "<group>"; };
 		F67D71C61CF5E1FA003F8B91 /* JSNavigationBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSNavigationBarController.swift; path = Sources/JSNavigationBarController.swift; sourceTree = "<group>"; };
 		F67D71C71CF5E1FA003F8B91 /* JSNavigationBarViewControllerProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSNavigationBarViewControllerProvider.swift; path = Sources/JSNavigationBarViewControllerProvider.swift; sourceTree = "<group>"; };
 		F67D71C81CF5E1FA003F8B91 /* JSNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSNavigationController.swift; path = Sources/JSNavigationController.swift; sourceTree = "<group>"; };
 		F67D71C91CF5E1FA003F8B91 /* JSViewControllersStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSViewControllersStackManager.swift; path = Sources/JSViewControllersStackManager.swift; sourceTree = "<group>"; };
 		F6E5D0AF1CF88C4C000874A3 /* JSNavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSNavigationControllerDelegate.swift; path = Sources/JSNavigationControllerDelegate.swift; sourceTree = "<group>"; };
+		F6ED5F5E1CFF488300CF7222 /* JSNavigationControllerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSNavigationControllerSegue.swift; path = Sources/JSNavigationControllerSegue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,8 @@
 				F67D71C61CF5E1FA003F8B91 /* JSNavigationBarController.swift */,
 				F67D71C71CF5E1FA003F8B91 /* JSNavigationBarViewControllerProvider.swift */,
 				F67D71C91CF5E1FA003F8B91 /* JSViewControllersStackManager.swift */,
+				F6ED5F5E1CFF488300CF7222 /* JSNavigationControllerSegue.swift */,
+				F655C1631D00ABE3005208A1 /* JSViewController.swift */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -222,9 +228,11 @@
 			files = (
 				F67D71CB1CF5E1FA003F8B91 /* JSNavigationBarViewControllerProvider.swift in Sources */,
 				F67D71CA1CF5E1FA003F8B91 /* JSNavigationBarController.swift in Sources */,
+				F655C1641D00ABE3005208A1 /* JSViewController.swift in Sources */,
 				F67D71CD1CF5E1FA003F8B91 /* JSViewControllersStackManager.swift in Sources */,
 				F67D71CC1CF5E1FA003F8B91 /* JSNavigationController.swift in Sources */,
 				F6E5D0B01CF88C4C000874A3 /* JSNavigationControllerDelegate.swift in Sources */,
+				F6ED5F5F1CFF488300CF7222 /* JSNavigationControllerSegue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
