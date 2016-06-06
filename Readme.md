@@ -132,11 +132,30 @@ public protocol JSNavigationControllerDelegate: class {
 ```
 
 ### <a name="storyboard"></a>Storyboard
-See the `ExampleStoryboard` project.
 
+You should only push `JSViewController` subclasses, that way you'll have access to `destinationViewController` and `destinationViewControllers` properties.
+
+Use `JSNavigationControllerSegue` for segues class.
+
+#### Segues identifiers
+
+* `rootViewController` to set the root view controller of the navigation controller.
+* `navigationBarViewController` to set the navigation bar view controller of a view controller.
+* `navigationControllerPush` to set the destination view controller of a view controller.
+
+If your view controller can push multiple view controllers, use `navigationControllerPush#NameOfYourViewController` pattern.
+
+That way, you can retrieve a specific view controller and push it like this:
+
+```swift
+let myViewController = destinationViewControllers["NameOfYourViewController"]
+navigationController?.push(viewController: myViewController, animated: true)
+```
+
+See the `ExampleStoryboard` project for an example of implementation.
 
 ## Examples
-See the `Example` project in the .zip file.
+See the `Example` and `ExampleStoryboard` projects in the .zip file.
 
 ## <a name="requirements"></a>Requirements
 * Xcode 7
