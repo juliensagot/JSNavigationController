@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "JSNavigationController"
-  s.version          = "0.1.2"
+  s.version          = "0.1.3"
   s.summary          = "A highly customizable UINavigationController suited for OS X"
 
   s.description      = <<-DESC
