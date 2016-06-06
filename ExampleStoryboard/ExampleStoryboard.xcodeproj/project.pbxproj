@@ -16,6 +16,8 @@
 		F67A0AFD1CFF7E8C00F221C4 /* BasicNavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67A0AFC1CFF7E8C00F221C4 /* BasicNavigationBarViewController.swift */; };
 		F67A0AFF1CFF854300F221C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67A0AFE1CFF854300F221C4 /* ViewController.swift */; };
 		F67A0B031CFF85D300F221C4 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67A0B021CFF85D300F221C4 /* NavigationBarView.swift */; };
+		F6F4B05B1D04CC73009A9DBB /* SecondVCBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F4B05A1D04CC73009A9DBB /* SecondVCBarViewController.swift */; };
+		F6F4B05D1D04CCEC009A9DBB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F4B05C1D04CCEC009A9DBB /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +45,8 @@
 		F67A0AFC1CFF7E8C00F221C4 /* BasicNavigationBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicNavigationBarViewController.swift; sourceTree = "<group>"; };
 		F67A0AFE1CFF854300F221C4 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F67A0B021CFF85D300F221C4 /* NavigationBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		F6F4B05A1D04CC73009A9DBB /* SecondVCBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondVCBarViewController.swift; sourceTree = "<group>"; };
+		F6F4B05C1D04CCEC009A9DBB /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +83,10 @@
 				F6732F411CFF29050086D620 /* AppDelegate.swift */,
 				F67A0AFA1CFF4AE900F221C4 /* NavigationController.swift */,
 				F67A0AFC1CFF7E8C00F221C4 /* BasicNavigationBarViewController.swift */,
+				F6F4B05A1D04CC73009A9DBB /* SecondVCBarViewController.swift */,
 				F67A0B021CFF85D300F221C4 /* NavigationBarView.swift */,
 				F67A0AFE1CFF854300F221C4 /* ViewController.swift */,
+				F6F4B05C1D04CCEC009A9DBB /* SecondViewController.swift */,
 				F6732F451CFF29050086D620 /* Assets.xcassets */,
 				F6732F471CFF29050086D620 /* Main.storyboard */,
 				F6732F4A1CFF29050086D620 /* Info.plist */,
@@ -164,7 +170,9 @@
 				F67A0AFB1CFF4AE900F221C4 /* NavigationController.swift in Sources */,
 				F67A0AFD1CFF7E8C00F221C4 /* BasicNavigationBarViewController.swift in Sources */,
 				F67A0AFF1CFF854300F221C4 /* ViewController.swift in Sources */,
+				F6F4B05D1D04CCEC009A9DBB /* SecondViewController.swift in Sources */,
 				F67A0B031CFF85D300F221C4 /* NavigationBarView.swift in Sources */,
+				F6F4B05B1D04CC73009A9DBB /* SecondVCBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -773,10 +773,10 @@
             </objects>
             <point key="canvasLocation" x="3" y="838"/>
         </scene>
-        <!--View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="izt-EH-RiZ">
             <objects>
-                <viewController id="T0K-O1-tI4" customClass="ViewController" customModule="ExampleStoryboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="T0K-O1-tI4" customClass="SecondViewController" customModule="ExampleStoryboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="ff6-tu-bxZ">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -797,17 +797,18 @@
                     </view>
                     <connections>
                         <segue destination="SeG-HN-fbt" kind="custom" identifier="navigationBarViewController" customClass="JSNavigationControllerSegue" customModule="JSNavigationController" id="rIX-cc-WXp"/>
-                        <segue destination="oV3-QB-h38" kind="custom" identifier="navigationControllerPush" customClass="JSNavigationControllerSegue" customModule="JSNavigationController" id="sBI-mm-9Uj"/>
+                        <segue destination="oV3-QB-h38" kind="custom" identifier="navigationControllerPush#ThirdVC" customClass="JSNavigationControllerSegue" customModule="JSNavigationController" id="sBI-mm-9Uj"/>
+                        <segue destination="7tf-gr-P0S" kind="custom" identifier="navigationControllerPush#FourthVC" customClass="JSNavigationControllerSegue" customModule="JSNavigationController" id="4aI-pA-rQO"/>
                     </connections>
                 </viewController>
                 <customObject id="ub5-KI-CaN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="524" y="1327"/>
         </scene>
-        <!--Basic Navigation Bar View Controller-->
+        <!--SecondVC Bar View Controller-->
         <scene sceneID="c65-I6-zeY">
             <objects>
-                <viewController id="SeG-HN-fbt" customClass="BasicNavigationBarViewController" customModule="ExampleStoryboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SeG-HN-fbt" customClass="SecondVCBarViewController" customModule="ExampleStoryboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="vbR-2d-ZO9">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="60"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -821,8 +822,8 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lxk-xt-FQ3">
-                                <rect key="frame" x="375" y="12" width="69" height="32"/>
-                                <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="BjS-Pg-x4l">
+                                <rect key="frame" x="363" y="13" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Fourth" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="BjS-Pg-x4l">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -834,19 +835,31 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cEG-be-sD4">
+                                <rect key="frame" x="291" y="13" width="72" height="32"/>
+                                <buttonCell key="cell" type="push" title="Third" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xmL-6d-qW5">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="lxk-xt-FQ3" secondAttribute="trailing" constant="12" id="0IW-1c-8g1"/>
-                            <constraint firstItem="ve8-Ju-1sY" firstAttribute="centerX" secondItem="vbR-2d-ZO9" secondAttribute="centerX" id="Tic-vH-lKF"/>
+                            <constraint firstItem="lxk-xt-FQ3" firstAttribute="leading" secondItem="cEG-be-sD4" secondAttribute="trailing" constant="12" id="0dd-gv-ZQS"/>
+                            <constraint firstItem="cEG-be-sD4" firstAttribute="centerY" secondItem="vbR-2d-ZO9" secondAttribute="centerY" id="PTR-Ga-th4"/>
+                            <constraint firstItem="ve8-Ju-1sY" firstAttribute="centerX" secondItem="vbR-2d-ZO9" secondAttribute="centerX" priority="250" id="Tic-vH-lKF"/>
+                            <constraint firstItem="ve8-Ju-1sY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oYo-KI-O44" secondAttribute="trailing" constant="12" id="XJO-xF-agb"/>
                             <constraint firstItem="ve8-Ju-1sY" firstAttribute="centerY" secondItem="vbR-2d-ZO9" secondAttribute="centerY" id="ZOc-MP-Qiv"/>
                             <constraint firstItem="lxk-xt-FQ3" firstAttribute="centerY" secondItem="vbR-2d-ZO9" secondAttribute="centerY" id="hhD-3c-AkJ"/>
                             <constraint firstItem="oYo-KI-O44" firstAttribute="leading" secondItem="vbR-2d-ZO9" secondAttribute="leading" constant="12" id="iYF-LH-xY0"/>
                             <constraint firstItem="oYo-KI-O44" firstAttribute="centerY" secondItem="vbR-2d-ZO9" secondAttribute="centerY" id="jSj-7e-1bb"/>
+                            <constraint firstItem="cEG-be-sD4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ve8-Ju-1sY" secondAttribute="trailing" constant="12" id="sIR-Os-f81"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="oYo-KI-O44" id="QoX-gZ-ueo"/>
-                        <outlet property="nextButton" destination="lxk-xt-FQ3" id="fRL-60-K1o"/>
+                        <outlet property="backButton" destination="oYo-KI-O44" id="3ki-4m-af9"/>
+                        <outlet property="fourthButton" destination="lxk-xt-FQ3" id="kRy-b8-zH0"/>
+                        <outlet property="thirdButton" destination="cEG-be-sD4" id="rFd-Eg-CCb"/>
                         <outlet property="titleLabel" destination="ve8-Ju-1sY" id="drN-jp-Vgv"/>
                     </connections>
                 </viewController>
@@ -882,7 +895,7 @@
                 </viewController>
                 <customObject id="dFX-Xo-6fR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1043" y="1327"/>
+            <point key="canvasLocation" x="1130" y="1008"/>
         </scene>
         <!--Basic Navigation Bar View Controller-->
         <scene sceneID="FdD-3h-sii">
@@ -922,7 +935,77 @@
                 </viewController>
                 <customObject id="yFN-29-pes" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1043" y="1602"/>
+            <point key="canvasLocation" x="1130" y="1285"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="AnB-h9-9ZI">
+            <objects>
+                <viewController id="7tf-gr-P0S" customClass="ViewController" customModule="ExampleStoryboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="sqg-md-miE">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sfm-yg-JId">
+                                <rect key="frame" x="118" y="138" width="214" height="24"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Fourth View Controller" id="HNk-rZ-zqH">
+                                    <font key="font" metaFont="systemMedium" size="20"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="sfm-yg-JId" firstAttribute="centerX" secondItem="sqg-md-miE" secondAttribute="centerX" id="Oa5-O0-iSb"/>
+                            <constraint firstItem="sfm-yg-JId" firstAttribute="centerY" secondItem="sqg-md-miE" secondAttribute="centerY" id="cjJ-5V-WUq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="iPM-mo-vFm" kind="custom" identifier="navigationBarViewController" customClass="JSNavigationControllerSegue" customModule="JSNavigationController" id="MUJ-1y-QGo"/>
+                    </connections>
+                </viewController>
+                <customObject id="5Ms-97-Zan" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1130" y="1591"/>
+        </scene>
+        <!--Basic Navigation Bar View Controller-->
+        <scene sceneID="baa-LV-Ofv">
+            <objects>
+                <viewController id="iPM-mo-vFm" customClass="BasicNavigationBarViewController" customModule="ExampleStoryboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="V5Y-We-88S">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="60"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AKO-Cl-ytO">
+                                <rect key="frame" x="192" y="22" width="66" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Fourth VC" id="dXJ-2j-84T">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Itd-sl-S6n">
+                                <rect key="frame" x="6" y="12" width="70" height="32"/>
+                                <buttonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eMl-ID-cPc">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="AKO-Cl-ytO" firstAttribute="centerX" secondItem="V5Y-We-88S" secondAttribute="centerX" id="J0c-c7-vls"/>
+                            <constraint firstItem="Itd-sl-S6n" firstAttribute="leading" secondItem="V5Y-We-88S" secondAttribute="leading" constant="12" id="XlU-Ne-mLX"/>
+                            <constraint firstItem="Itd-sl-S6n" firstAttribute="centerY" secondItem="V5Y-We-88S" secondAttribute="centerY" id="lgi-oA-gmG"/>
+                            <constraint firstItem="AKO-Cl-ytO" firstAttribute="centerY" secondItem="V5Y-We-88S" secondAttribute="centerY" id="vZU-4g-3fU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="Itd-sl-S6n" id="ews-5t-srb"/>
+                        <outlet property="titleLabel" destination="AKO-Cl-ytO" id="abd-rk-r3e"/>
+                    </connections>
+                </viewController>
+                <customObject id="xeP-9M-7db" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1130" y="1868"/>
         </scene>
     </scenes>
 </document>
