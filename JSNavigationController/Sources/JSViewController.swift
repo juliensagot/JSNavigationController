@@ -14,6 +14,7 @@ public class JSViewController: NSViewController, JSNavigationBarViewControllerPr
 	private static let navigationBarViewControllerIdentifier = "navigationBarViewController"
 
 	public private(set) var destinationViewController: NSViewController?
+	public private(set) var destinationViewControllers: [String: NSViewController] = [:]
 	public var navigationBarVC: NSViewController?
 	public weak var navigationController: JSNavigationController?
 
@@ -46,10 +47,16 @@ public class JSViewController: NSViewController, JSNavigationBarViewControllerPr
 		switch segueIdentifier {
 		case JSViewController.navigationBarViewControllerIdentifier:
 			navigationBarVC = segue.destinationController as? NSViewController
-		case JSViewController.navigationControllerPushIdentifier:
-			destinationViewController = segue.destinationController as? NSViewController
 		default:
-			return
+			if segueIdentifier.containsString(JSViewController.navigationControllerPushIdentifier) {
+				if segueIdentifier.characters.count > JSViewController.navigationControllerPushIdentifier.characters.count && segueIdentifier.characters.contains("#") {
+					if let key = segueIdentifier.characters.split("#").map({ String($0) }).last {
+						destinationViewControllers[key] = segue.destinationController as? NSViewController
+					}
+				} else {
+					destinationViewController = segue.destinationController as? NSViewController
+				}
+			}
 		}
 	}
 }
