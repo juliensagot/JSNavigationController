@@ -38,7 +38,7 @@ It takes 3 arguments:
 2. `contentView `: the view you want to be used as the container of pushed views.
 3. `navigationBarView `: the view you want to be used as the container of pushed views in the navigation bar.
 
-**_Note_**: `JSNavigationController` **does not hold references** to the views you pass as `contentView` and `navigationBarView`.
+**_Note_**: `JSNavigationController` **does not hold reference** to the views you pass as `contentView`.
 
 ### <a name="pushingViewControllers"></a>Pushing view controllers
 ```swift
