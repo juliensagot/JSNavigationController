@@ -165,8 +165,8 @@ See the `Example` and `ExampleStoryboard` projects in the .zip file.
 ### <a name="carthageIntegration"></a>Carthage
 Add `github "juliensagot/JSNavigationController"` to your Cartfile.
 
-### <a name="cocoapodsIntegration"></a>Cocopods
-Add `pod pod 'JSNavigationController', :git => 'https://github.com/juliensagot/JSNavigationController.git'` to your Podfile.
+### <a name="cocoapodsIntegration"></a>Cocoapods
+Add `pod 'JSNavigationController', :git => 'https://github.com/juliensagot/JSNavigationController.git'` to your Podfile.
 
 ### <a name="manualIntegration"></a>Manually
 Download the .zip file and add the content of `JSNavigationController/Sources` folder to your project.
