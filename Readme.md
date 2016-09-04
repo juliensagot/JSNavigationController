@@ -42,9 +42,9 @@ It takes 3 arguments:
 
 ### <a name="pushingViewControllers"></a>Pushing view controllers
 ```swift
-func push(viewController viewController: NSViewController, animated: Bool)
-func push(viewController viewController: NSViewController, animation: AnimationBlock?)
-func push(viewController viewController: NSViewController, contentAnimation: AnimationBlock?, navigationBarAnimation: AnimationBlock?)
+func push(viewController: NSViewController, animated: Bool)
+func push(viewController: NSViewController, animation: AnimationBlock?)
+func push(viewController: NSViewController, contentAnimation: AnimationBlock?, navigationBarAnimation: AnimationBlock?)
 ```
 
 **_Note_**: pushing a view controller that is already in the navigation stack will have no effect.
@@ -63,15 +63,15 @@ public protocol JSNavigationBarViewControllerProvider: class {
 ### <a name="poppingViewControllers"></a>Popping view controllers
 #### • Popping to the previous view controller
 ```swift
-func popViewController(animated animated: Bool)
-func popViewController(animation animation: AnimationBlock?)
-func popViewController(contentAnimation contentAnimation: AnimationBlock?, navigationBarAnimation: AnimationBlock?)
+func popViewController(animated: Bool)
+func popViewController(animation: AnimationBlock?)
+func popViewController(contentAnimation: AnimationBlock?, navigationBarAnimation: AnimationBlock?)
 ```
 #### • Popping to the root view controller
 ```swift
-func popToRootViewController(animated animated: Bool)
-func popToRootViewController(animation animation: AnimationBlock?)
-func popToRootViewController(contentAnimation contentAnimation: AnimationBlock?, navigationBarAnimation: AnimationBlock?)
+func popToRootViewController(animated: Bool)
+func popToRootViewController(animation: AnimationBlock?)
+func popToRootViewController(contentAnimation: AnimationBlock?, navigationBarAnimation: AnimationBlock?)
 ```
 #### • Popping to a specific view controller
 ```swift
@@ -87,7 +87,7 @@ func pop(toViewController viewController: NSViewController, contentAnimation: An
 How does AnimationBlock works? Let's take a look at its declaration:
 
 ```swift
-typealias AnimationBlock = (fromView: NSView?, toView: NSView?) -> (fromViewAnimations: [CAAnimation], toViewAnimations: [CAAnimation])
+typealias AnimationBlock = (_ fromView: NSView?, _ toView: NSView?) -> (fromViewAnimations: [CAAnimation], toViewAnimations: [CAAnimation])
 ```
 * `fromView`: it's the view currently on screen (**the view to hide**).
 * `toView`: the view that will be on screen after the animation completed (**the view to show**).
@@ -126,8 +126,8 @@ let animation: AnimationBlock = { (_, _) in
 ### <a name="delegate"></a>Delegate
 ```swift
 public protocol JSNavigationControllerDelegate: class {
-	func navigationController(navigationController: JSNavigationController, willShowViewController viewController: NSViewController, animated: Bool)
-	func navigationController(navigationController: JSNavigationController, didShowViewController viewController: NSViewController, animated: Bool)
+	func navigationController(_ navigationController: JSNavigationController, willShowViewController viewController: NSViewController, animated: Bool)
+	func navigationController(_ navigationController: JSNavigationController, didShowViewController viewController: NSViewController, animated: Bool)
 }
 ```
 
