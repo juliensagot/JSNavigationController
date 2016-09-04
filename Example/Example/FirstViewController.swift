@@ -7,11 +7,11 @@ private extension Selector {
 
 class FirstViewController: NSViewController, JSNavigationBarViewControllerProvider {
 	weak var navigationController: JSNavigationController?
-	private let navigationBarVC = BasicNavigationBarViewController()
+	fileprivate let navigationBarVC = BasicNavigationBarViewController()
 
 	// MARK: - Initializers
 	init() {
-		super.init(nibName: "FirstViewController", bundle: NSBundle.mainBundle())!
+		super.init(nibName: "FirstViewController", bundle: Bundle.main)!
 	}
 
 	required init?(coder: NSCoder) {
@@ -23,7 +23,7 @@ class FirstViewController: NSViewController, JSNavigationBarViewControllerProvid
 		super.viewDidLoad()
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.wantsLayer = true
-		view.layer?.backgroundColor = NSColor(deviceRed: 240/255, green: 240/255, blue: 240/255, alpha: 1.0).CGColor
+		view.layer?.backgroundColor = NSColor(deviceRed: 240/255, green: 240/255, blue: 240/255, alpha: 1.0).cgColor
 	}
 
 	override func viewDidAppear() {
@@ -31,7 +31,7 @@ class FirstViewController: NSViewController, JSNavigationBarViewControllerProvid
 		view.superview?.addConstraints(viewConstraints())
 
 		// NavigationBar
-		navigationBarVC.backButton?.hidden = true
+		navigationBarVC.backButton?.isHidden = true
 		navigationBarVC.titleLabel?.stringValue = "First VC"
 		navigationBarVC.nextButton?.action = .pushToSecondVC
 		navigationBarVC.nextButton?.target = self
@@ -42,25 +42,25 @@ class FirstViewController: NSViewController, JSNavigationBarViewControllerProvid
 	}
 
 	// MARK: - Layout
-	private func viewConstraints() -> [NSLayoutConstraint] {
+	fileprivate func viewConstraints() -> [NSLayoutConstraint] {
 		let left = NSLayoutConstraint(
-			item: view, attribute: .Left, relatedBy: .Equal,
-			toItem: view.superview, attribute: .Left,
+			item: view, attribute: .left, relatedBy: .equal,
+			toItem: view.superview, attribute: .left,
 			multiplier: 1.0, constant: 0.0
 		)
 		let right = NSLayoutConstraint(
-			item: view, attribute: .Right, relatedBy: .Equal,
-			toItem: view.superview, attribute: .Right,
+			item: view, attribute: .right, relatedBy: .equal,
+			toItem: view.superview, attribute: .right,
 			multiplier: 1.0, constant: 0.0
 		)
 		let top = NSLayoutConstraint(
-			item: view, attribute: .Top, relatedBy: .Equal,
-			toItem: view.superview, attribute: .Top,
+			item: view, attribute: .top, relatedBy: .equal,
+			toItem: view.superview, attribute: .top,
 			multiplier: 1.0, constant: 0.0
 		)
 		let bottom = NSLayoutConstraint(
-			item: view, attribute: .Bottom, relatedBy: .Equal,
-			toItem: view.superview, attribute: .Bottom,
+			item: view, attribute: .bottom, relatedBy: .equal,
+			toItem: view.superview, attribute: .bottom,
 			multiplier: 1.0, constant: 0.0
 		)
 		return [left, right, top, bottom]

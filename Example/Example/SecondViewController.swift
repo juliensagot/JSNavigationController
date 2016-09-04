@@ -8,11 +8,11 @@ private extension Selector {
 
 class SecondViewController: NSViewController, JSNavigationBarViewControllerProvider {
 	weak var navigationController: JSNavigationController?
-	private let navigationBarVC = BasicNavigationBarViewController()
+	fileprivate let navigationBarVC = BasicNavigationBarViewController()
 
 	// MARK: - Initializers
 	init() {
-		super.init(nibName: "SecondViewController", bundle: NSBundle.mainBundle())!
+		super.init(nibName: "SecondViewController", bundle: Bundle.main)!
 	}
 
 	required init?(coder: NSCoder) {
@@ -25,7 +25,7 @@ class SecondViewController: NSViewController, JSNavigationBarViewControllerProvi
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.wantsLayer = true
 		if let view = view as? NSVisualEffectView {
-			view.material = .MediumLight
+			view.material = .mediumLight
 		}
 	}
 
@@ -46,25 +46,25 @@ class SecondViewController: NSViewController, JSNavigationBarViewControllerProvi
 	}
 
 	// MARK: - Layout
-	private func viewConstraints() -> [NSLayoutConstraint] {
+	fileprivate func viewConstraints() -> [NSLayoutConstraint] {
 		let left = NSLayoutConstraint(
-			item: view, attribute: .Left, relatedBy: .Equal,
-			toItem: view.superview, attribute: .Left,
+			item: view, attribute: .left, relatedBy: .equal,
+			toItem: view.superview, attribute: .left,
 			multiplier: 1.0, constant: 0.0
 		)
 		let right = NSLayoutConstraint(
-			item: view, attribute: .Right, relatedBy: .Equal,
-			toItem: view.superview, attribute: .Right,
+			item: view, attribute: .right, relatedBy: .equal,
+			toItem: view.superview, attribute: .right,
 			multiplier: 1.0, constant: 0.0
 		)
 		let top = NSLayoutConstraint(
-			item: view, attribute: .Top, relatedBy: .Equal,
-			toItem: view.superview, attribute: .Top,
+			item: view, attribute: .top, relatedBy: .equal,
+			toItem: view.superview, attribute: .top,
 			multiplier: 1.0, constant: 0.0
 		)
 		let bottom = NSLayoutConstraint(
-			item: view, attribute: .Bottom, relatedBy: .Equal,
-			toItem: view.superview, attribute: .Bottom,
+			item: view, attribute: .bottom, relatedBy: .equal,
+			toItem: view.superview, attribute: .bottom,
 			multiplier: 1.0, constant: 0.0
 		)
 		return [left, right, top, bottom]
@@ -88,21 +88,21 @@ class SecondViewController: NSViewController, JSNavigationBarViewControllerProvi
 			
 			let slideToBottomTransform = CATransform3DMakeTranslation(0, -NSHeight(viewBounds), 0)
 			let slideToBottomAnimation = CABasicAnimation(keyPath: "transform")
-			slideToBottomAnimation.fromValue = NSValue(CATransform3D: CATransform3DIdentity)
-			slideToBottomAnimation.toValue = NSValue(CATransform3D: slideToBottomTransform)
+			slideToBottomAnimation.fromValue = NSValue(caTransform3D: CATransform3DIdentity)
+			slideToBottomAnimation.toValue = NSValue(caTransform3D: slideToBottomTransform)
 			slideToBottomAnimation.duration = 0.25
 			slideToBottomAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
 			slideToBottomAnimation.fillMode = kCAFillModeForwards
-			slideToBottomAnimation.removedOnCompletion = false
+			slideToBottomAnimation.isRemovedOnCompletion = false
 
 			let slideFromTopTransform = CATransform3DMakeTranslation(0, NSHeight(viewBounds), 0)
 			let slideFromTopAnimation = CABasicAnimation(keyPath: "transform")
-			slideFromTopAnimation.fromValue = NSValue(CATransform3D: slideFromTopTransform)
-			slideFromTopAnimation.toValue = NSValue(CATransform3D: CATransform3DIdentity)
+			slideFromTopAnimation.fromValue = NSValue(caTransform3D: slideFromTopTransform)
+			slideFromTopAnimation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideFromTopAnimation.duration = 0.25
 			slideFromTopAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
 			slideFromTopAnimation.fillMode = kCAFillModeForwards
-			slideFromTopAnimation.removedOnCompletion = false
+			slideFromTopAnimation.isRemovedOnCompletion = false
 
 			return ([slideToBottomAnimation], [slideFromTopAnimation])
 		}
@@ -111,21 +111,21 @@ class SecondViewController: NSViewController, JSNavigationBarViewControllerProvi
 			
 			let slideToBottomTransform = CATransform3DMakeTranslation(0, -NSHeight(viewBounds) / 2, 0)
 			let slideToBottomAnimation = CABasicAnimation(keyPath: "transform")
-			slideToBottomAnimation.fromValue = NSValue(CATransform3D: CATransform3DIdentity)
-			slideToBottomAnimation.toValue = NSValue(CATransform3D: slideToBottomTransform)
+			slideToBottomAnimation.fromValue = NSValue(caTransform3D: CATransform3DIdentity)
+			slideToBottomAnimation.toValue = NSValue(caTransform3D: slideToBottomTransform)
 			slideToBottomAnimation.duration = 0.25
 			slideToBottomAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
 			slideToBottomAnimation.fillMode = kCAFillModeForwards
-			slideToBottomAnimation.removedOnCompletion = false
+			slideToBottomAnimation.isRemovedOnCompletion = false
 			
 			let slideFromTopTransform = CATransform3DMakeTranslation(0, NSHeight(viewBounds) / 2, 0)
 			let slideFromTopAnimation = CABasicAnimation(keyPath: "transform")
-			slideFromTopAnimation.fromValue = NSValue(CATransform3D: slideFromTopTransform)
-			slideFromTopAnimation.toValue = NSValue(CATransform3D: CATransform3DIdentity)
+			slideFromTopAnimation.fromValue = NSValue(caTransform3D: slideFromTopTransform)
+			slideFromTopAnimation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideFromTopAnimation.duration = 0.25
 			slideFromTopAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
 			slideFromTopAnimation.fillMode = kCAFillModeForwards
-			slideFromTopAnimation.removedOnCompletion = false
+			slideFromTopAnimation.isRemovedOnCompletion = false
 
 			let fadeInAnimation = CABasicAnimation(keyPath: "opacity")
 			fadeInAnimation.fromValue = 0.0
@@ -133,7 +133,7 @@ class SecondViewController: NSViewController, JSNavigationBarViewControllerProvi
 			fadeInAnimation.duration = 0.25
 			fadeInAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
 			fadeInAnimation.fillMode = kCAFillModeForwards
-			fadeInAnimation.removedOnCompletion = false
+			fadeInAnimation.isRemovedOnCompletion = false
 
 			let fadeOutAnimation = CABasicAnimation(keyPath: "opacity")
 			fadeOutAnimation.fromValue = 1.0
@@ -141,7 +141,7 @@ class SecondViewController: NSViewController, JSNavigationBarViewControllerProvi
 			fadeOutAnimation.duration = 0.25
 			fadeOutAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
 			fadeOutAnimation.fillMode = kCAFillModeForwards
-			fadeOutAnimation.removedOnCompletion = false
+			fadeOutAnimation.isRemovedOnCompletion = false
 			
 			return ([fadeOutAnimation, slideToBottomAnimation], [fadeInAnimation, slideFromTopAnimation])
 		}

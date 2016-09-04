@@ -8,49 +8,49 @@
 
 import AppKit
 
-public class JSViewController: NSViewController, JSNavigationBarViewControllerProvider {
+open class JSViewController: NSViewController, JSNavigationBarViewControllerProvider {
 
-	private static let navigationControllerPushIdentifier = "navigationControllerPush"
-	private static let navigationBarViewControllerIdentifier = "navigationBarViewController"
+	fileprivate static let navigationControllerPushIdentifier = "navigationControllerPush"
+	fileprivate static let navigationBarViewControllerIdentifier = "navigationBarViewController"
 
-	public private(set) var destinationViewController: NSViewController?
-	public private(set) var destinationViewControllers: [String: NSViewController] = [:]
-	public var navigationBarVC: NSViewController?
-	public weak var navigationController: JSNavigationController?
+	open fileprivate(set) var destinationViewController: NSViewController?
+	open fileprivate(set) var destinationViewControllers: [String: NSViewController] = [:]
+	open var navigationBarVC: NSViewController?
+	open weak var navigationController: JSNavigationController?
 
-	public func navigationBarViewController() -> NSViewController {
+	open func navigationBarViewController() -> NSViewController {
 		guard let navigationBarVC = navigationBarVC else { fatalError("You must set the navigationBar view controller") }
 		return navigationBarVC
 	}
 
 	// MARK: - View Lifecycle
-	public override func awakeFromNib() {
-		if self.dynamicType.instancesRespondToSelector(#selector(NSViewController.awakeFromNib)) {
+	open override func awakeFromNib() {
+		if type(of: self).instancesRespond(to: #selector(NSViewController.awakeFromNib)) {
 			super.awakeFromNib()
 		}
 		setupSegues()
 	}
 
 	// MARK: - Segues
-	private func setupSegues() {
-		guard let segues = valueForKey("segueTemplates") as? [NSObject] else { return }
+	fileprivate func setupSegues() {
+		guard let segues = value(forKey: "segueTemplates") as? [NSObject] else { return }
 		for segue in segues {
-			if let id = segue.valueForKey("identifier") as? String {
-				performSegueWithIdentifier(id, sender: self)
+			if let id = segue.value(forKey: "identifier") as? String {
+				performSegue(withIdentifier: id, sender: self)
 			}
 		}
 	}
 
-	public override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+	open override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
 		guard let segueIdentifier = segue.identifier else { return }
 
 		switch segueIdentifier {
 		case JSViewController.navigationBarViewControllerIdentifier:
 			navigationBarVC = segue.destinationController as? NSViewController
 		default:
-			if segueIdentifier.containsString(JSViewController.navigationControllerPushIdentifier) {
+			if segueIdentifier.contains(JSViewController.navigationControllerPushIdentifier) {
 				if segueIdentifier.characters.count > JSViewController.navigationControllerPushIdentifier.characters.count && segueIdentifier.characters.contains("#") {
-					if let key = segueIdentifier.characters.split("#").map({ String($0) }).last {
+					if let key = segueIdentifier.characters.split(separator: "#").map({ String($0) }).last {
 						destinationViewControllers[key] = segue.destinationController as? NSViewController
 					}
 				} else {

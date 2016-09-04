@@ -8,12 +8,12 @@
 
 import AppKit
 
-public class JSNavigationController: NSViewController, JSViewControllersStackManager {
-	@IBOutlet weak public var contentView: NSView?
-	@IBOutlet public var navigationBarView: NSView?
-	public var viewControllers: [NSViewController] = []
-	public var navigationBarController: JSNavigationBarController?
-	public weak var delegate: JSNavigationControllerDelegate?
+open class JSNavigationController: NSViewController, JSViewControllersStackManager {
+	@IBOutlet weak open var contentView: NSView?
+	@IBOutlet open var navigationBarView: NSView?
+	open var viewControllers: [NSViewController] = []
+	open var navigationBarController: JSNavigationBarController?
+	open weak var delegate: JSNavigationControllerDelegate?
 
 	// MARK: - Creating Navigation Controllers
 	public init(rootViewController: NSViewController, contentView: NSView, navigationBarView: NSView) {
@@ -35,7 +35,7 @@ public class JSNavigationController: NSViewController, JSViewControllersStackMan
 	}
 
 	// MARK: - View Lifecycle
-	public override func loadView() {
+	open override func loadView() {
 		if nibName != nil {
 			super.loadView()
 		} else {
@@ -43,36 +43,36 @@ public class JSNavigationController: NSViewController, JSViewControllersStackMan
 		}
 	}
 
-	public override func viewDidAppear() {
+	open override func viewDidAppear() {
 		super.viewDidAppear()
 		guard nibName != nil else { return }
-		guard let segues = valueForKey("segueTemplates") as? [NSObject] else { return } // Undocumented
+		guard let segues = value(forKey: "segueTemplates") as? [NSObject] else { return } // Undocumented
 
 		if let navigationBarView = navigationBarView {
 			navigationBarController = JSNavigationBarController(view: navigationBarView)
 		}
 
 		for segue in segues {
-			if let id = segue.valueForKey("identifier") as? String {
-				performSegueWithIdentifier(id, sender: self)
+			if let id = segue.value(forKey: "identifier") as? String {
+				performSegue(withIdentifier: id, sender: self)
 			}
 		}
 	}
 
 	// MARK: - Pushing
-	public func push(viewController viewController: NSViewController, contentAnimation: AnimationBlock?, navigationBarAnimation: AnimationBlock?) {
+	open func push(viewController: NSViewController, contentAnimation: AnimationBlock?, navigationBarAnimation: AnimationBlock?) {
 		guard !Set(viewControllers).contains(viewController) else { return }
 
 		viewControllers.append(viewController)
 		delegate?.navigationController(self, willShowViewController: viewController, animated: (contentAnimation != nil))
 
 		// Remove old view
-		if let previousViewController = previousViewController where contentAnimation == nil {
+		if let previousViewController = previousViewController , contentAnimation == nil {
 			previousViewController.view.removeFromSuperview()
 		}
 
 		// Add the new view
-		contentView?.addSubview(viewController.view, positioned: .Above, relativeTo: previousViewController?.view)
+		contentView?.addSubview(viewController.view, positioned: .above, relativeTo: previousViewController?.view)
 
 		// NavigationBar
 		if let vc = viewController as? JSNavigationBarViewControllerProvider {
@@ -96,12 +96,12 @@ public class JSNavigationController: NSViewController, JSViewControllersStackMan
 		}
 	}
 
-	public func push(viewController viewController: NSViewController, animation: AnimationBlock?) {
+	open func push(viewController: NSViewController, animation: AnimationBlock?) {
 		let navBarAnimation: AnimationBlock? = animation != nil ? navigationBarController?.defaultPushAnimation() : nil
 		push(viewController: viewController, contentAnimation: animation, navigationBarAnimation: navBarAnimation)
 	}
 
-	public func push(viewController viewController: NSViewController, animated: Bool) {
+	open func push(viewController: NSViewController, animated: Bool) {
 		if animated {
 			push(viewController: viewController, animation: defaultPushAnimation())
 		} else {
@@ -110,7 +110,7 @@ public class JSNavigationController: NSViewController, JSViewControllersStackMan
 	}
 
 	// MARK: - Popping
-	public func pop(toViewController viewController: NSViewController, contentAnimation: AnimationBlock?, navigationBarAnimation: AnimationBlock?) {
+	open func pop(toViewController viewController: NSViewController, contentAnimation: AnimationBlock?, navigationBarAnimation: AnimationBlock?) {
 		guard Set(viewControllers).contains(viewController) else { return }
 		guard let rootViewController = viewControllers.first else { return }
 		guard let topViewController = topViewController else { return }
@@ -118,10 +118,10 @@ public class JSNavigationController: NSViewController, JSViewControllersStackMan
 
 		delegate?.navigationController(self, willShowViewController: viewController, animated: (contentAnimation != nil))
 		
-		let viewControllerPosition = viewControllers.indexOf(viewController)
+		let viewControllerPosition = viewControllers.index(of: viewController)
 
 		// Add the new view
-		contentView?.addSubview(viewController.view, positioned: .Below, relativeTo: topViewController.view)
+		contentView?.addSubview(viewController.view, positioned: .below, relativeTo: topViewController.view)
 
 		// NavigationBar
 		if let vc = viewController as? JSNavigationBarViewControllerProvider {
@@ -134,7 +134,7 @@ public class JSNavigationController: NSViewController, JSViewControllersStackMan
 				self.topViewController?.view.removeFromSuperview()
 				self.topViewController?.view.layer?.removeAllAnimations()
 				let range = (viewControllerPosition! + 1)..<self.viewControllers.count
-				self.viewControllers.removeRange(range)
+				self.viewControllers.removeSubrange(range)
 				self.delegate?.navigationController(self, didShowViewController: viewController, animated: true)
 			}
 			animatePop(toView: viewController.view, animation: contentAnimation)
@@ -142,17 +142,17 @@ public class JSNavigationController: NSViewController, JSViewControllersStackMan
 		} else {
 			topViewController.view.removeFromSuperview()
 			let range = (viewControllerPosition! + 1)..<self.viewControllers.count
-			viewControllers.removeRange(range)
+			viewControllers.removeSubrange(range)
 			delegate?.navigationController(self, didShowViewController: viewController, animated: false)
 		}
 	}
 
-	public func pop(toViewController viewController: NSViewController, animation: AnimationBlock?) {
+	open func pop(toViewController viewController: NSViewController, animation: AnimationBlock?) {
 		let navBarAnimation: AnimationBlock? = animation != nil ? navigationBarController?.defaultPopAnimation() : nil
 		pop(toViewController: viewController, contentAnimation: animation, navigationBarAnimation: navBarAnimation)
 	}
 
-	public func pop(toViewController viewController: NSViewController, animated: Bool) {
+	open func pop(toViewController viewController: NSViewController, animated: Bool) {
 		if animated {
 			pop(toViewController: viewController, animation: defaultPopAnimation())
 		} else {
@@ -160,17 +160,17 @@ public class JSNavigationController: NSViewController, JSViewControllersStackMan
 		}
 	}
 
-	public func popViewController(contentAnimation contentAnimation: AnimationBlock?, navigationBarAnimation: AnimationBlock?) {
+	open func popViewController(contentAnimation: AnimationBlock?, navigationBarAnimation: AnimationBlock?) {
 		guard let previousViewController = previousViewController else { return }
 		pop(toViewController: previousViewController, contentAnimation: contentAnimation, navigationBarAnimation: navigationBarAnimation)
 	}
 
-	public func popViewController(animation animation: AnimationBlock?) {
+	open func popViewController(animation: AnimationBlock?) {
 		let navBarAnimation: AnimationBlock? = animation != nil ? navigationBarController?.defaultPopAnimation() : nil
 		popViewController(contentAnimation: animation, navigationBarAnimation: navBarAnimation)
 	}
 
-	public func popViewController(animated animated: Bool) {
+	open func popViewController(animated: Bool) {
 		if animated {
 			popViewController(animation: defaultPopAnimation())
 		} else {
@@ -178,7 +178,7 @@ public class JSNavigationController: NSViewController, JSViewControllersStackMan
 		}
 	}
 
-	public func popToRootViewController(contentAnimation contentAnimation: AnimationBlock?, navigationBarAnimation: AnimationBlock?) {
+	open func popToRootViewController(contentAnimation: AnimationBlock?, navigationBarAnimation: AnimationBlock?) {
 		guard let rootViewController = viewControllers.first else { return }
 		guard let topViewController = topViewController else { return }
 		guard topViewController != rootViewController else { return }
@@ -186,12 +186,12 @@ public class JSNavigationController: NSViewController, JSViewControllersStackMan
 		pop(toViewController: rootViewController, contentAnimation: contentAnimation, navigationBarAnimation: navigationBarAnimation)
 	}
 
-	public func popToRootViewController(animation animation: AnimationBlock?) {
+	open func popToRootViewController(animation: AnimationBlock?) {
 		let navBarAnimation: AnimationBlock? = animation != nil ? navigationBarController?.defaultPopAnimation() : nil
 		popToRootViewController(contentAnimation: animation, navigationBarAnimation: navBarAnimation)
 	}
 
-	public func popToRootViewController(animated animated: Bool) {
+	open func popToRootViewController(animated: Bool) {
 		if animated {
 			popToRootViewController(animation: defaultPopAnimation())
 		} else {
@@ -200,60 +200,60 @@ public class JSNavigationController: NSViewController, JSViewControllersStackMan
 	}
 
 	// MARK: - Animations
-	public func defaultPushAnimation() -> AnimationBlock {
+	open func defaultPushAnimation() -> AnimationBlock {
 		return { [weak self] (_, _) in
 			let containerViewBounds = self?.contentView?.bounds ?? .zero
 
 			let slideToLeftTransform = CATransform3DMakeTranslation(-NSWidth(containerViewBounds) / 2, 0, 0)
 			let slideToLeftAnimation = CABasicAnimation(keyPath: "transform")
-			slideToLeftAnimation.fromValue = NSValue(CATransform3D: CATransform3DIdentity)
-			slideToLeftAnimation.toValue = NSValue(CATransform3D: slideToLeftTransform)
+			slideToLeftAnimation.fromValue = NSValue(caTransform3D: CATransform3DIdentity)
+			slideToLeftAnimation.toValue = NSValue(caTransform3D: slideToLeftTransform)
 			slideToLeftAnimation.duration = 0.25
 			slideToLeftAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
 			slideToLeftAnimation.fillMode = kCAFillModeForwards
-			slideToLeftAnimation.removedOnCompletion = false
+			slideToLeftAnimation.isRemovedOnCompletion = false
 
 			let slideFromRightTransform = CATransform3DMakeTranslation(NSWidth(containerViewBounds), 0, 0)
 			let slideFromRightAnimation = CABasicAnimation(keyPath: "transform")
-			slideFromRightAnimation.fromValue = NSValue(CATransform3D: slideFromRightTransform)
-			slideFromRightAnimation.toValue = NSValue(CATransform3D: CATransform3DIdentity)
+			slideFromRightAnimation.fromValue = NSValue(caTransform3D: slideFromRightTransform)
+			slideFromRightAnimation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideFromRightAnimation.duration = 0.25
 			slideFromRightAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
 			slideFromRightAnimation.fillMode = kCAFillModeForwards
-			slideFromRightAnimation.removedOnCompletion = false
+			slideFromRightAnimation.isRemovedOnCompletion = false
 
 			return ([slideToLeftAnimation], [slideFromRightAnimation])
 		}
 	}
 
-	public func defaultPopAnimation() -> AnimationBlock {
+	open func defaultPopAnimation() -> AnimationBlock {
 		return { [weak self] (_, _) in
 			let containerViewBounds = self?.contentView?.bounds ?? .zero
 
 			let slideToRightTransform = CATransform3DMakeTranslation(-NSWidth(containerViewBounds) / 2, 0, 0)
 			let slideToRightAnimation = CABasicAnimation(keyPath: "transform")
-			slideToRightAnimation.fromValue = NSValue(CATransform3D: slideToRightTransform)
-			slideToRightAnimation.toValue = NSValue(CATransform3D: CATransform3DIdentity)
+			slideToRightAnimation.fromValue = NSValue(caTransform3D: slideToRightTransform)
+			slideToRightAnimation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideToRightAnimation.duration = 0.25
 			slideToRightAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
 			slideToRightAnimation.fillMode = kCAFillModeForwards
-			slideToRightAnimation.removedOnCompletion = false
+			slideToRightAnimation.isRemovedOnCompletion = false
 
 			let slideToRightFromCenterTransform = CATransform3DMakeTranslation(NSWidth(containerViewBounds), 0, 0)
 			let slideToRightFromCenterAnimation = CABasicAnimation(keyPath: "transform")
-			slideToRightFromCenterAnimation.fromValue = NSValue(CATransform3D: CATransform3DIdentity)
-			slideToRightFromCenterAnimation.toValue = NSValue(CATransform3D: slideToRightFromCenterTransform)
+			slideToRightFromCenterAnimation.fromValue = NSValue(caTransform3D: CATransform3DIdentity)
+			slideToRightFromCenterAnimation.toValue = NSValue(caTransform3D: slideToRightFromCenterTransform)
 			slideToRightFromCenterAnimation.duration = 0.25
 			slideToRightFromCenterAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
 			slideToRightFromCenterAnimation.fillMode = kCAFillModeForwards
-			slideToRightFromCenterAnimation.removedOnCompletion = false
+			slideToRightFromCenterAnimation.isRemovedOnCompletion = false
 
 			return ([slideToRightFromCenterAnimation], [slideToRightAnimation])
 		}
 	}
 
 	// MARK: - Storyboard
-	public override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+	open override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
 		guard segue.identifier == "rootViewController" else { return }
 		guard let destinationController = segue.destinationController as? NSViewController else { return }
 
@@ -271,7 +271,7 @@ private class EmptyViewController: NSViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	private override func loadView() {
+	fileprivate override func loadView() {
 		view = NSView(frame: .zero)
 	}
 }

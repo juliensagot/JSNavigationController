@@ -8,8 +8,8 @@
 
 import AppKit
 
-public class JSNavigationControllerSegue: NSStoryboardSegue {
-	public override func perform() {
+open class JSNavigationControllerSegue: NSStoryboardSegue {
+	open override func perform() {
 		return
 	}
 }

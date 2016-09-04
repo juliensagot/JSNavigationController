@@ -9,6 +9,6 @@
 import AppKit
 
 public protocol JSNavigationControllerDelegate: class {
-	func navigationController(navigationController: JSNavigationController, willShowViewController viewController: NSViewController, animated: Bool)
-	func navigationController(navigationController: JSNavigationController, didShowViewController viewController: NSViewController, animated: Bool)
+	func navigationController(_ navigationController: JSNavigationController, willShowViewController viewController: NSViewController, animated: Bool)
+	func navigationController(_ navigationController: JSNavigationController, didShowViewController viewController: NSViewController, animated: Bool)
 }

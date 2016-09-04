@@ -1,11 +1,11 @@
 import AppKit
 
 class NavigationBarView: NSView {
-	override func drawRect(dirtyRect: NSRect) {
+	override func draw(_ dirtyRect: NSRect) {
 		NSGraphicsContext.saveGraphicsState()
-		NSColor.whiteColor().setFill()
+		NSColor.white.setFill()
 		NSRectFill(dirtyRect)
-		NSColor.blackColor().colorWithAlphaComponent(0.2).setFill()
+		NSColor.black.withAlphaComponent(0.2).setFill()
 		NSRectFill(CGRect(origin: .zero, size: CGSize(width: dirtyRect.width, height: 1)))
 		NSGraphicsContext.restoreGraphicsState()
 	}
