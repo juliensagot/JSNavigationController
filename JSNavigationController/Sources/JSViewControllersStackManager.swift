@@ -222,7 +222,7 @@ public extension JSViewControllersStackManager {
 	}
 
 	// MARK: - Animating
-	fileprivate func animate(fromView: NSView?, toView: NSView?, animation: AnimationBlock) {
+	private func animate(fromView: NSView?, toView: NSView?, animation: AnimationBlock) {
 		fromView?.wantsLayer = true
 		toView?.wantsLayer = true
 		for animation in animation(fromView, toView).fromViewAnimations {
