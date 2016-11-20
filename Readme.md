@@ -1,5 +1,5 @@
 # JSNavigationController
->A highly customizable UINavigationController suited for OS X.
+>A highly customizable UINavigationController suited for macOS.
 
 [![MIT License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](LICENSE.md)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
