@@ -10,11 +10,11 @@ import AppKit
 
 open class JSViewController: NSViewController, JSNavigationBarViewControllerProvider {
 
-	fileprivate static let navigationControllerPushIdentifier = "navigationControllerPush"
-	fileprivate static let navigationBarViewControllerIdentifier = "navigationBarViewController"
+	private static let navigationControllerPushIdentifier = "navigationControllerPush"
+	private static let navigationBarViewControllerIdentifier = "navigationBarViewController"
 
-	open fileprivate(set) var destinationViewController: NSViewController?
-	open fileprivate(set) var destinationViewControllers: [String: NSViewController] = [:]
+	open private(set) var destinationViewController: NSViewController?
+	open private(set) var destinationViewControllers: [String: NSViewController] = [:]
 	open var navigationBarVC: NSViewController?
 	open weak var navigationController: JSNavigationController?
 
@@ -32,7 +32,7 @@ open class JSViewController: NSViewController, JSNavigationBarViewControllerProv
 	}
 
 	// MARK: - Segues
-	fileprivate func setupSegues() {
+	private func setupSegues() {
 		guard let segues = value(forKey: "segueTemplates") as? [NSObject] else { return }
 		for segue in segues {
 			if let id = segue.value(forKey: "identifier") as? String {
