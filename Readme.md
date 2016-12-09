@@ -159,7 +159,7 @@ See the `Example` and `ExampleStoryboard` projects in the .zip file.
 
 ## <a name="requirements"></a>Requirements
 * Xcode 7
-* OS X 10.11
+* OS X 10.10
 
 ## <a name="integration"></a>Integration
 ### <a name="carthageIntegration"></a>Carthage
