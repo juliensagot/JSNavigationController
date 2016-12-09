@@ -204,8 +204,8 @@ open class JSNavigationController: NSViewController, JSViewControllersStackManag
 		return { [weak self] (_, _) in
 			let containerViewBounds = self?.contentView?.bounds ?? .zero
 
-			let slideToLeftTransform = CATransform3DMakeTranslation(-NSWidth(containerViewBounds) / 2, 0, 0)
-			let slideToLeftAnimation = CABasicAnimation(keyPath: "transform")
+			let slideToLeftTransform = CATransform3DMakeTranslation(-containerViewBounds.width / 2, 0, 0)
+			let slideToLeftAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
 			slideToLeftAnimation.fromValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideToLeftAnimation.toValue = NSValue(caTransform3D: slideToLeftTransform)
 			slideToLeftAnimation.duration = 0.25
@@ -213,8 +213,8 @@ open class JSNavigationController: NSViewController, JSViewControllersStackManag
 			slideToLeftAnimation.fillMode = kCAFillModeForwards
 			slideToLeftAnimation.isRemovedOnCompletion = false
 
-			let slideFromRightTransform = CATransform3DMakeTranslation(NSWidth(containerViewBounds), 0, 0)
-			let slideFromRightAnimation = CABasicAnimation(keyPath: "transform")
+			let slideFromRightTransform = CATransform3DMakeTranslation(containerViewBounds.width, 0, 0)
+			let slideFromRightAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
 			slideFromRightAnimation.fromValue = NSValue(caTransform3D: slideFromRightTransform)
 			slideFromRightAnimation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideFromRightAnimation.duration = 0.25
@@ -230,8 +230,8 @@ open class JSNavigationController: NSViewController, JSViewControllersStackManag
 		return { [weak self] (_, _) in
 			let containerViewBounds = self?.contentView?.bounds ?? .zero
 
-			let slideToRightTransform = CATransform3DMakeTranslation(-NSWidth(containerViewBounds) / 2, 0, 0)
-			let slideToRightAnimation = CABasicAnimation(keyPath: "transform")
+			let slideToRightTransform = CATransform3DMakeTranslation(-containerViewBounds.width / 2, 0, 0)
+			let slideToRightAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
 			slideToRightAnimation.fromValue = NSValue(caTransform3D: slideToRightTransform)
 			slideToRightAnimation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideToRightAnimation.duration = 0.25
@@ -239,8 +239,8 @@ open class JSNavigationController: NSViewController, JSViewControllersStackManag
 			slideToRightAnimation.fillMode = kCAFillModeForwards
 			slideToRightAnimation.isRemovedOnCompletion = false
 
-			let slideToRightFromCenterTransform = CATransform3DMakeTranslation(NSWidth(containerViewBounds), 0, 0)
-			let slideToRightFromCenterAnimation = CABasicAnimation(keyPath: "transform")
+			let slideToRightFromCenterTransform = CATransform3DMakeTranslation(containerViewBounds.width, 0, 0)
+			let slideToRightFromCenterAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
 			slideToRightFromCenterAnimation.fromValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideToRightFromCenterAnimation.toValue = NSValue(caTransform3D: slideToRightFromCenterTransform)
 			slideToRightFromCenterAnimation.duration = 0.25

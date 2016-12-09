@@ -22,8 +22,8 @@ open class JSNavigationBarController: JSViewControllersStackManager {
 		return { [weak self] (_, _) in
 			let containerViewBounds = self?.contentView?.bounds ?? .zero
 
-			let slideToLeftTransform = CATransform3DMakeTranslation(-NSWidth(containerViewBounds) / 2, 0, 0)
-			let slideToLeftAnimation = CABasicAnimation(keyPath: "transform")
+			let slideToLeftTransform = CATransform3DMakeTranslation(-containerViewBounds.width / 2, 0, 0)
+			let slideToLeftAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
 			slideToLeftAnimation.fromValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideToLeftAnimation.toValue = NSValue(caTransform3D: slideToLeftTransform)
 			slideToLeftAnimation.duration = 0.25
@@ -31,8 +31,8 @@ open class JSNavigationBarController: JSViewControllersStackManager {
 			slideToLeftAnimation.fillMode = kCAFillModeForwards
 			slideToLeftAnimation.isRemovedOnCompletion = false
 
-			let slideFromRightTransform = CATransform3DMakeTranslation(NSWidth(containerViewBounds) / 2, 0, 0)
-			let slideFromRightAnimation = CABasicAnimation(keyPath: "transform")
+			let slideFromRightTransform = CATransform3DMakeTranslation(containerViewBounds.width / 2, 0, 0)
+			let slideFromRightAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
 			slideFromRightAnimation.fromValue = NSValue(caTransform3D: slideFromRightTransform)
 			slideFromRightAnimation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideFromRightAnimation.duration = 0.25
@@ -40,7 +40,7 @@ open class JSNavigationBarController: JSViewControllersStackManager {
 			slideFromRightAnimation.fillMode = kCAFillModeForwards
 			slideFromRightAnimation.isRemovedOnCompletion = false
 
-			let fadeInAnimation = CABasicAnimation(keyPath: "opacity")
+			let fadeInAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
 			fadeInAnimation.fromValue = 0.0
 			fadeInAnimation.toValue = 1.0
 			fadeInAnimation.duration = 0.25
@@ -48,7 +48,7 @@ open class JSNavigationBarController: JSViewControllersStackManager {
 			fadeInAnimation.fillMode = kCAFillModeForwards
 			fadeInAnimation.isRemovedOnCompletion = false
 
-			let fadeOutAnimation = CABasicAnimation(keyPath: "opacity")
+			let fadeOutAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
 			fadeOutAnimation.fromValue = 1.0
 			fadeOutAnimation.toValue = 0.0
 			fadeOutAnimation.duration = 0.25
@@ -64,8 +64,8 @@ open class JSNavigationBarController: JSViewControllersStackManager {
 		return { [weak self] (_, _) in
 			let containerViewBounds = self?.contentView?.bounds ?? .zero
 
-			let slideToRightTransform = CATransform3DMakeTranslation(-NSWidth(containerViewBounds) / 2, 0, 0)
-			let slideToRightAnimation = CABasicAnimation(keyPath: "transform")
+			let slideToRightTransform = CATransform3DMakeTranslation(-containerViewBounds.width / 2, 0, 0)
+			let slideToRightAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
 			slideToRightAnimation.fromValue = NSValue(caTransform3D: slideToRightTransform)
 			slideToRightAnimation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideToRightAnimation.duration = 0.25
@@ -73,8 +73,8 @@ open class JSNavigationBarController: JSViewControllersStackManager {
 			slideToRightAnimation.fillMode = kCAFillModeForwards
 			slideToRightAnimation.isRemovedOnCompletion = false
 
-			let slideToRightFromCenterTransform = CATransform3DMakeTranslation(NSWidth(containerViewBounds) / 2, 0, 0)
-			let slideToRightFromCenterAnimation = CABasicAnimation(keyPath: "transform")
+			let slideToRightFromCenterTransform = CATransform3DMakeTranslation(containerViewBounds.width / 2, 0, 0)
+			let slideToRightFromCenterAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
 			slideToRightFromCenterAnimation.fromValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideToRightFromCenterAnimation.toValue = NSValue(caTransform3D: slideToRightFromCenterTransform)
 			slideToRightFromCenterAnimation.duration = 0.35
@@ -82,7 +82,7 @@ open class JSNavigationBarController: JSViewControllersStackManager {
 			slideToRightFromCenterAnimation.fillMode = kCAFillModeForwards
 			slideToRightFromCenterAnimation.isRemovedOnCompletion = false
 
-			let fadeInAnimation = CABasicAnimation(keyPath: "opacity")
+			let fadeInAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
 			fadeInAnimation.fromValue = 0.0
 			fadeInAnimation.toValue = 1.0
 			fadeInAnimation.duration = 0.25
@@ -90,7 +90,7 @@ open class JSNavigationBarController: JSViewControllersStackManager {
 			fadeInAnimation.fillMode = kCAFillModeForwards
 			fadeInAnimation.isRemovedOnCompletion = false
 
-			let fadeOutAnimation = CABasicAnimation(keyPath: "opacity")
+			let fadeOutAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
 			fadeOutAnimation.fromValue = 1.0
 			fadeOutAnimation.toValue = 0.0
 			fadeOutAnimation.duration = 0.25

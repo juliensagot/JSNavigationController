@@ -16,7 +16,7 @@ class SecondViewController: NSViewController, JSNavigationBarViewControllerProvi
 	}
 
 	required init?(coder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
+		fatalError("\(#function) has not been implemented")
 	}
 
 	// MARK: - View Lifecycle
@@ -86,8 +86,8 @@ class SecondViewController: NSViewController, JSNavigationBarViewControllerProvi
 		let contentAnimation: AnimationBlock = { [weak self] (_, _) in
 			let viewBounds = self?.view.bounds ?? .zero
 			
-			let slideToBottomTransform = CATransform3DMakeTranslation(0, -NSHeight(viewBounds), 0)
-			let slideToBottomAnimation = CABasicAnimation(keyPath: "transform")
+			let slideToBottomTransform = CATransform3DMakeTranslation(0, -viewBounds.height, 0)
+			let slideToBottomAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
 			slideToBottomAnimation.fromValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideToBottomAnimation.toValue = NSValue(caTransform3D: slideToBottomTransform)
 			slideToBottomAnimation.duration = 0.25
@@ -95,8 +95,8 @@ class SecondViewController: NSViewController, JSNavigationBarViewControllerProvi
 			slideToBottomAnimation.fillMode = kCAFillModeForwards
 			slideToBottomAnimation.isRemovedOnCompletion = false
 
-			let slideFromTopTransform = CATransform3DMakeTranslation(0, NSHeight(viewBounds), 0)
-			let slideFromTopAnimation = CABasicAnimation(keyPath: "transform")
+			let slideFromTopTransform = CATransform3DMakeTranslation(0, viewBounds.height, 0)
+			let slideFromTopAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
 			slideFromTopAnimation.fromValue = NSValue(caTransform3D: slideFromTopTransform)
 			slideFromTopAnimation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideFromTopAnimation.duration = 0.25
@@ -109,8 +109,8 @@ class SecondViewController: NSViewController, JSNavigationBarViewControllerProvi
 		let navigationBarAnimation: AnimationBlock = { [weak self] (_, _) in
 			let viewBounds = self?.navigationController?.navigationBarController?.contentView?.bounds ?? .zero
 			
-			let slideToBottomTransform = CATransform3DMakeTranslation(0, -NSHeight(viewBounds) / 2, 0)
-			let slideToBottomAnimation = CABasicAnimation(keyPath: "transform")
+			let slideToBottomTransform = CATransform3DMakeTranslation(0, -viewBounds.height / 2, 0)
+			let slideToBottomAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
 			slideToBottomAnimation.fromValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideToBottomAnimation.toValue = NSValue(caTransform3D: slideToBottomTransform)
 			slideToBottomAnimation.duration = 0.25
@@ -118,8 +118,8 @@ class SecondViewController: NSViewController, JSNavigationBarViewControllerProvi
 			slideToBottomAnimation.fillMode = kCAFillModeForwards
 			slideToBottomAnimation.isRemovedOnCompletion = false
 			
-			let slideFromTopTransform = CATransform3DMakeTranslation(0, NSHeight(viewBounds) / 2, 0)
-			let slideFromTopAnimation = CABasicAnimation(keyPath: "transform")
+			let slideFromTopTransform = CATransform3DMakeTranslation(0, viewBounds.height / 2, 0)
+			let slideFromTopAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
 			slideFromTopAnimation.fromValue = NSValue(caTransform3D: slideFromTopTransform)
 			slideFromTopAnimation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideFromTopAnimation.duration = 0.25
@@ -127,7 +127,7 @@ class SecondViewController: NSViewController, JSNavigationBarViewControllerProvi
 			slideFromTopAnimation.fillMode = kCAFillModeForwards
 			slideFromTopAnimation.isRemovedOnCompletion = false
 
-			let fadeInAnimation = CABasicAnimation(keyPath: "opacity")
+			let fadeInAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
 			fadeInAnimation.fromValue = 0.0
 			fadeInAnimation.toValue = 1.0
 			fadeInAnimation.duration = 0.25
@@ -135,7 +135,7 @@ class SecondViewController: NSViewController, JSNavigationBarViewControllerProvi
 			fadeInAnimation.fillMode = kCAFillModeForwards
 			fadeInAnimation.isRemovedOnCompletion = false
 
-			let fadeOutAnimation = CABasicAnimation(keyPath: "opacity")
+			let fadeOutAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
 			fadeOutAnimation.fromValue = 1.0
 			fadeOutAnimation.toValue = 0.0
 			fadeOutAnimation.duration = 0.25
