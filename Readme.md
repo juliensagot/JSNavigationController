@@ -101,7 +101,7 @@ A simple crossfade animation:
 
 ```swift
 let animation: AnimationBlock = { (_, _) in
-	let fadeInAnimation = CABasicAnimation(keyPath: "opacity")
+	let fadeInAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
 	fadeInAnimation.fromValue = 0.0
 	fadeInAnimation.toValue = 1.0
 	fadeInAnimation.duration = 0.25
@@ -109,7 +109,7 @@ let animation: AnimationBlock = { (_, _) in
 	fadeInAnimation.fillMode = kCAFillModeForwards
 	fadeInAnimation.removedOnCompletion = false
 
-	let fadeOutAnimation = CABasicAnimation(keyPath: "opacity")
+	let fadeOutAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
 	fadeOutAnimation.fromValue = 1.0
 	fadeOutAnimation.toValue = 0.0
 	fadeOutAnimation.duration = 0.25
@@ -159,7 +159,7 @@ See the `Example` and `ExampleStoryboard` projects in the .zip file.
 
 ## <a name="requirements"></a>Requirements
 * Xcode 7
-* OS X 10.10
+* OS X 10.11
 
 ## <a name="integration"></a>Integration
 ### <a name="carthageIntegration"></a>Carthage
