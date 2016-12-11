@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name             = "JSNavigationController"
-  s.version          = "0.1.4"
-  s.summary          = "A highly customizable UINavigationController suited for OS X"
+  s.version          = "0.1.5"
+  s.summary          = "A highly customizable UINavigationController suited for macOS"
 
   s.description      = <<-DESC
-A highly customizable UINavigationController suited for OS X.
+A highly customizable UINavigationController suited for macOS.
                        DESC
 
   s.homepage         = "https://github.com/juliensagot/JSNavigationController"
