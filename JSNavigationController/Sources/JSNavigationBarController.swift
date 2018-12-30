@@ -27,8 +27,8 @@ open class JSNavigationBarController: JSViewControllersStackManager {
 			slideToLeftAnimation.fromValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideToLeftAnimation.toValue = NSValue(caTransform3D: slideToLeftTransform)
 			slideToLeftAnimation.duration = 0.25
-			slideToLeftAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-			slideToLeftAnimation.fillMode = kCAFillModeForwards
+			slideToLeftAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+			slideToLeftAnimation.fillMode = CAMediaTimingFillMode.forwards
 			slideToLeftAnimation.isRemovedOnCompletion = false
 
 			let slideFromRightTransform = CATransform3DMakeTranslation(containerViewBounds.width / 2, 0, 0)
@@ -36,24 +36,24 @@ open class JSNavigationBarController: JSViewControllersStackManager {
 			slideFromRightAnimation.fromValue = NSValue(caTransform3D: slideFromRightTransform)
 			slideFromRightAnimation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideFromRightAnimation.duration = 0.25
-			slideFromRightAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-			slideFromRightAnimation.fillMode = kCAFillModeForwards
+			slideFromRightAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+			slideFromRightAnimation.fillMode = CAMediaTimingFillMode.forwards
 			slideFromRightAnimation.isRemovedOnCompletion = false
 
 			let fadeInAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
 			fadeInAnimation.fromValue = 0.0
 			fadeInAnimation.toValue = 1.0
 			fadeInAnimation.duration = 0.25
-			fadeInAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-			fadeInAnimation.fillMode = kCAFillModeForwards
+			fadeInAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+			fadeInAnimation.fillMode = CAMediaTimingFillMode.forwards
 			fadeInAnimation.isRemovedOnCompletion = false
 
 			let fadeOutAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
 			fadeOutAnimation.fromValue = 1.0
 			fadeOutAnimation.toValue = 0.0
 			fadeOutAnimation.duration = 0.25
-			fadeOutAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-			fadeOutAnimation.fillMode = kCAFillModeForwards
+			fadeOutAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+			fadeOutAnimation.fillMode = CAMediaTimingFillMode.forwards
 			fadeOutAnimation.isRemovedOnCompletion = false
 
 			return ([slideToLeftAnimation, fadeOutAnimation], [slideFromRightAnimation, fadeInAnimation])
@@ -69,8 +69,8 @@ open class JSNavigationBarController: JSViewControllersStackManager {
 			slideToRightAnimation.fromValue = NSValue(caTransform3D: slideToRightTransform)
 			slideToRightAnimation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideToRightAnimation.duration = 0.25
-			slideToRightAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-			slideToRightAnimation.fillMode = kCAFillModeForwards
+			slideToRightAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+			slideToRightAnimation.fillMode = CAMediaTimingFillMode.forwards
 			slideToRightAnimation.isRemovedOnCompletion = false
 
 			let slideToRightFromCenterTransform = CATransform3DMakeTranslation(containerViewBounds.width / 2, 0, 0)
@@ -78,24 +78,24 @@ open class JSNavigationBarController: JSViewControllersStackManager {
 			slideToRightFromCenterAnimation.fromValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideToRightFromCenterAnimation.toValue = NSValue(caTransform3D: slideToRightFromCenterTransform)
 			slideToRightFromCenterAnimation.duration = 0.35
-			slideToRightFromCenterAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-			slideToRightFromCenterAnimation.fillMode = kCAFillModeForwards
+			slideToRightFromCenterAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+			slideToRightFromCenterAnimation.fillMode = CAMediaTimingFillMode.forwards
 			slideToRightFromCenterAnimation.isRemovedOnCompletion = false
 
 			let fadeInAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
 			fadeInAnimation.fromValue = 0.0
 			fadeInAnimation.toValue = 1.0
 			fadeInAnimation.duration = 0.25
-			fadeInAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-			fadeInAnimation.fillMode = kCAFillModeForwards
+			fadeInAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+			fadeInAnimation.fillMode = CAMediaTimingFillMode.forwards
 			fadeInAnimation.isRemovedOnCompletion = false
 
 			let fadeOutAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
 			fadeOutAnimation.fromValue = 1.0
 			fadeOutAnimation.toValue = 0.0
 			fadeOutAnimation.duration = 0.25
-			fadeOutAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-			fadeOutAnimation.fillMode = kCAFillModeForwards
+			fadeOutAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+			fadeOutAnimation.fillMode = CAMediaTimingFillMode.forwards
 			fadeOutAnimation.isRemovedOnCompletion = false
 
 			return ([slideToRightFromCenterAnimation, fadeOutAnimation], [slideToRightAnimation, fadeInAnimation])

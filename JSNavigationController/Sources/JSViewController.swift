@@ -49,8 +49,8 @@ open class JSViewController: NSViewController, JSNavigationBarViewControllerProv
 			navigationBarVC = segue.destinationController as? NSViewController
 		default:
 			if segueIdentifier.contains(JSViewController.navigationControllerPushIdentifier) {
-				if segueIdentifier.characters.count > JSViewController.navigationControllerPushIdentifier.characters.count && segueIdentifier.characters.contains("#") {
-					if let key = segueIdentifier.characters.split(separator: "#").map({ String($0) }).last {
+				if segueIdentifier.count > JSViewController.navigationControllerPushIdentifier.count && segueIdentifier.contains("#") {
+					if let key = segueIdentifier.split(separator: "#").map({ String($0) }).last {
 						destinationViewControllers[key] = segue.destinationController as? NSViewController
 					}
 				} else {

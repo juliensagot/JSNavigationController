@@ -7,7 +7,7 @@ class BasicNavigationBarViewController: NSViewController {
 
 	// MARK: - Initializers
 	init() {
-		super.init(nibName: "BasicNavigationBarViewController", bundle: Bundle.main)!
+		super.init(nibName: "BasicNavigationBarViewController", bundle: Bundle.main)
 	}
 
 	required init?(coder: NSCoder) {

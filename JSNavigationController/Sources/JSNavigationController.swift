@@ -19,14 +19,14 @@ open class JSNavigationController: NSViewController, JSViewControllersStackManag
 	public init(rootViewController: NSViewController, contentView: NSView, navigationBarView: NSView) {
 		self.contentView = contentView
 		navigationBarController = JSNavigationBarController(view: navigationBarView)
-		super.init(nibName: nil, bundle: nil)!
+		super.init(nibName: nil, bundle: nil)
 		push(viewController: rootViewController, animated: false)
 	}
 
 	public init(viewControllers: [NSViewController], contentView: NSView, navigationBarView: NSView) {
 		self.contentView = contentView
 		navigationBarController = JSNavigationBarController(view: navigationBarView)
-		super.init(nibName: nil, bundle: nil)!
+		super.init(nibName: nil, bundle: nil)
 		set(viewControllers: viewControllers, animated: false)
 	}
 	
@@ -209,8 +209,8 @@ open class JSNavigationController: NSViewController, JSViewControllersStackManag
 			slideToLeftAnimation.fromValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideToLeftAnimation.toValue = NSValue(caTransform3D: slideToLeftTransform)
 			slideToLeftAnimation.duration = 0.25
-			slideToLeftAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-			slideToLeftAnimation.fillMode = kCAFillModeForwards
+			slideToLeftAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+			slideToLeftAnimation.fillMode = CAMediaTimingFillMode.forwards
 			slideToLeftAnimation.isRemovedOnCompletion = false
 
 			let slideFromRightTransform = CATransform3DMakeTranslation(containerViewBounds.width, 0, 0)
@@ -218,8 +218,8 @@ open class JSNavigationController: NSViewController, JSViewControllersStackManag
 			slideFromRightAnimation.fromValue = NSValue(caTransform3D: slideFromRightTransform)
 			slideFromRightAnimation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideFromRightAnimation.duration = 0.25
-			slideFromRightAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-			slideFromRightAnimation.fillMode = kCAFillModeForwards
+			slideFromRightAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+			slideFromRightAnimation.fillMode = CAMediaTimingFillMode.forwards
 			slideFromRightAnimation.isRemovedOnCompletion = false
 
 			return ([slideToLeftAnimation], [slideFromRightAnimation])
@@ -235,8 +235,8 @@ open class JSNavigationController: NSViewController, JSViewControllersStackManag
 			slideToRightAnimation.fromValue = NSValue(caTransform3D: slideToRightTransform)
 			slideToRightAnimation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideToRightAnimation.duration = 0.25
-			slideToRightAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-			slideToRightAnimation.fillMode = kCAFillModeForwards
+			slideToRightAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+			slideToRightAnimation.fillMode = CAMediaTimingFillMode.forwards
 			slideToRightAnimation.isRemovedOnCompletion = false
 
 			let slideToRightFromCenterTransform = CATransform3DMakeTranslation(containerViewBounds.width, 0, 0)
@@ -244,8 +244,8 @@ open class JSNavigationController: NSViewController, JSViewControllersStackManag
 			slideToRightFromCenterAnimation.fromValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideToRightFromCenterAnimation.toValue = NSValue(caTransform3D: slideToRightFromCenterTransform)
 			slideToRightFromCenterAnimation.duration = 0.25
-			slideToRightFromCenterAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-			slideToRightFromCenterAnimation.fillMode = kCAFillModeForwards
+			slideToRightFromCenterAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+			slideToRightFromCenterAnimation.fillMode = CAMediaTimingFillMode.forwards
 			slideToRightFromCenterAnimation.isRemovedOnCompletion = false
 
 			return ([slideToRightFromCenterAnimation], [slideToRightAnimation])
@@ -264,7 +264,7 @@ open class JSNavigationController: NSViewController, JSViewControllersStackManag
 // MARK: -
 private class EmptyViewController: NSViewController {
 	init() {
-		super.init(nibName: nil, bundle: nil)!
+		super.init(nibName: nil, bundle: nil)
 	}
 
 	required init?(coder: NSCoder) {

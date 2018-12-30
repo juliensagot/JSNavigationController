@@ -5,7 +5,7 @@ class FourthViewController: NSViewController {
 	weak var navigationController: JSNavigationController?
 
 	init() {
-		super.init(nibName: "FourthViewController", bundle: Bundle.main)!
+		super.init(nibName: "FourthViewController", bundle: Bundle.main)
 	}
 
 	required init?(coder: NSCoder) {

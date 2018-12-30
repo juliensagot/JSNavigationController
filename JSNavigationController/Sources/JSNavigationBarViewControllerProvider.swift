@@ -9,6 +9,6 @@
 import AppKit
 
 public protocol JSNavigationBarViewControllerProvider: class {
-	weak var navigationController: JSNavigationController? { get set }
+    var navigationController: JSNavigationController? { get set }
 	func navigationBarViewController() -> NSViewController
 }

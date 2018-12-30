@@ -11,7 +11,7 @@ class FirstViewController: NSViewController, JSNavigationBarViewControllerProvid
 
 	// MARK: - Initializers
 	init() {
-		super.init(nibName: "FirstViewController", bundle: Bundle.main)!
+		super.init(nibName: "FirstViewController", bundle: Bundle.main)
 	}
 
 	required init?(coder: NSCoder) {

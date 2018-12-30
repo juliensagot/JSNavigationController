@@ -12,7 +12,7 @@ class ThirdViewController: NSViewController, JSNavigationBarViewControllerProvid
 
 	// MARK: - Initializers
 	init() {
-		super.init(nibName: "ThirdViewController", bundle: Bundle.main)!
+		super.init(nibName: "ThirdViewController", bundle: Bundle.main)
 	}
 
 	required init?(coder: NSCoder) {
@@ -85,8 +85,8 @@ class ThirdViewController: NSViewController, JSNavigationBarViewControllerProvid
 			slideFromBottomAnimation.fromValue = NSValue(caTransform3D: slideFromBottomTransform)
 			slideFromBottomAnimation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideFromBottomAnimation.duration = 0.25
-			slideFromBottomAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-			slideFromBottomAnimation.fillMode = kCAFillModeForwards
+			slideFromBottomAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+			slideFromBottomAnimation.fillMode = CAMediaTimingFillMode.forwards
 			slideFromBottomAnimation.isRemovedOnCompletion = false
 
 			let slideToTopTransform = CATransform3DMakeTranslation(0, viewBounds.height, 0)
@@ -94,8 +94,8 @@ class ThirdViewController: NSViewController, JSNavigationBarViewControllerProvid
 			slideToTopAnimation.fromValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideToTopAnimation.toValue = NSValue(caTransform3D: slideToTopTransform)
 			slideToTopAnimation.duration = 0.25
-			slideToTopAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-			slideToTopAnimation.fillMode = kCAFillModeForwards
+			slideToTopAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+			slideToTopAnimation.fillMode = CAMediaTimingFillMode.forwards
 			slideToTopAnimation.isRemovedOnCompletion = false
 			
 			return ([slideToTopAnimation], [slideFromBottomAnimation])
@@ -108,8 +108,8 @@ class ThirdViewController: NSViewController, JSNavigationBarViewControllerProvid
 			slideFromBottomAnimation.fromValue = NSValue(caTransform3D: slideFromBottomTransform)
 			slideFromBottomAnimation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideFromBottomAnimation.duration = 0.25
-			slideFromBottomAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-			slideFromBottomAnimation.fillMode = kCAFillModeForwards
+			slideFromBottomAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+			slideFromBottomAnimation.fillMode = CAMediaTimingFillMode.forwards
 			slideFromBottomAnimation.isRemovedOnCompletion = false
 			
 			let slideToTopTransform = CATransform3DMakeTranslation(0, viewBounds.height / 2, 0)
@@ -117,24 +117,24 @@ class ThirdViewController: NSViewController, JSNavigationBarViewControllerProvid
 			slideToTopAnimation.fromValue = NSValue(caTransform3D: CATransform3DIdentity)
 			slideToTopAnimation.toValue = NSValue(caTransform3D: slideToTopTransform)
 			slideToTopAnimation.duration = 0.25
-			slideToTopAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-			slideToTopAnimation.fillMode = kCAFillModeForwards
+			slideToTopAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+			slideToTopAnimation.fillMode = CAMediaTimingFillMode.forwards
 			slideToTopAnimation.isRemovedOnCompletion = false
 			
 			let fadeInAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
 			fadeInAnimation.fromValue = 0.0
 			fadeInAnimation.toValue = 1.0
 			fadeInAnimation.duration = 0.25
-			fadeInAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-			fadeInAnimation.fillMode = kCAFillModeForwards
+			fadeInAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+			fadeInAnimation.fillMode = CAMediaTimingFillMode.forwards
 			fadeInAnimation.isRemovedOnCompletion = false
 			
 			let fadeOutAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
 			fadeOutAnimation.fromValue = 1.0
 			fadeOutAnimation.toValue = 0.0
 			fadeOutAnimation.duration = 0.25
-			fadeOutAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-			fadeOutAnimation.fillMode = kCAFillModeForwards
+			fadeOutAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+			fadeOutAnimation.fillMode = CAMediaTimingFillMode.forwards
 			fadeOutAnimation.isRemovedOnCompletion = false
 			
 			return ([fadeOutAnimation, slideToTopAnimation], [fadeInAnimation, slideFromBottomAnimation])
@@ -146,7 +146,7 @@ class ThirdViewController: NSViewController, JSNavigationBarViewControllerProvid
 		navigationController?.popToRootViewController(animated: true)
 	}
 
-	func popVC() {
+	@objc func popVC() {
 		navigationController?.popViewController(animated: true)
 	}
 
