@@ -56,13 +56,13 @@ class ViewController: JSViewController {
 		return [left, right, top, bottom]
 	}
 
-	func pushToNextViewController() {
+    @objc func pushToNextViewController() {
 		if let destinationViewController = destinationViewController {
 			navigationController?.push(viewController: destinationViewController, animated: true)
 		}
 	}
 
-	func popViewController() {
+    @objc func popViewController() {
 		navigationController?.popViewController(animated: true)
 	}
 }

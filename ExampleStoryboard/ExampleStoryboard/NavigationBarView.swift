@@ -4,9 +4,9 @@ class NavigationBarView: NSView {
 	override func draw(_ dirtyRect: NSRect) {
 		NSGraphicsContext.saveGraphicsState()
 		NSColor.white.setFill()
-		NSRectFill(dirtyRect)
+		dirtyRect.fill()
 		NSColor.black.withAlphaComponent(0.2).setFill()
-		NSRectFill(CGRect(origin: .zero, size: CGSize(width: dirtyRect.width, height: 1)))
+		CGRect(origin: .zero, size: CGSize(width: dirtyRect.width, height: 1)).fill()
 		NSGraphicsContext.restoreGraphicsState()
 	}
 }

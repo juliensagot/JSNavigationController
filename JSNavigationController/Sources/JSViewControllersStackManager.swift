@@ -96,15 +96,15 @@ public protocol JSViewControllersStackManager: class {
 
 // MARK: -
 public extension JSViewControllersStackManager {
-	public var topViewController: NSViewController? {
+    var topViewController: NSViewController? {
 		return viewControllers.last
 	}
-	public var previousViewController: NSViewController? {
+    var previousViewController: NSViewController? {
 		guard viewControllers.count > 1 else { return nil }
 		return viewControllers[viewControllers.count - 2]
 	}
 
-	public func set(viewControllers: [NSViewController], animated: Bool) {
+    func set(viewControllers: [NSViewController], animated: Bool) {
 		guard !viewControllers.isEmpty else { return }
 
 		if animated {
@@ -123,7 +123,7 @@ public extension JSViewControllersStackManager {
 		}
 	}
 
-	public func push(viewController: NSViewController, animation: AnimationBlock?) {
+    func push(viewController: NSViewController, animation: AnimationBlock?) {
 		guard !Set(viewControllers).contains(viewController) else { return }
 
 		viewControllers.append(viewController)
@@ -147,7 +147,7 @@ public extension JSViewControllersStackManager {
 		}
 	}
 
-	public func push(viewController: NSViewController, animated: Bool) {
+    func push(viewController: NSViewController, animated: Bool) {
 		if animated {
 			push(viewController: viewController, animation: defaultPushAnimation())
 		} else {
@@ -156,12 +156,12 @@ public extension JSViewControllersStackManager {
 	}
 
 	// MARK: - Popping
-	public func popViewController(animation: AnimationBlock?) {
+    func popViewController(animation: AnimationBlock?) {
 		guard let previousViewController = previousViewController else { return } // You can't pop the root view controller
 		pop(toViewController: previousViewController, animation: animation)
 	}
 
-	public func popViewController(animated: Bool) {
+    func popViewController(animated: Bool) {
 		if animated {
 			popViewController(animation: defaultPopAnimation())
 		} else {
@@ -169,13 +169,13 @@ public extension JSViewControllersStackManager {
 		}
 	}
 
-	public func pop(toViewController viewController: NSViewController, animation: AnimationBlock?) {
+    func pop(toViewController viewController: NSViewController, animation: AnimationBlock?) {
 		guard Set(viewControllers).contains(viewController) else { return }
 		guard let rootViewController = viewControllers.first else { return }
 		guard let topViewController = topViewController else { return }
 		guard topViewController != rootViewController else { return }
 
-		let viewControllerPosition = viewControllers.index(of: viewController)
+        let viewControllerPosition = viewControllers.firstIndex(of: viewController)
 
 		// Add the new view
 		contentView?.addSubview(viewController.view, positioned: .below, relativeTo: topViewController.view)
@@ -197,7 +197,7 @@ public extension JSViewControllersStackManager {
 		}
 	}
 
-	public func pop(toViewController viewController: NSViewController, animated: Bool) {
+    func pop(toViewController viewController: NSViewController, animated: Bool) {
 		if animated {
 			pop(toViewController: viewController, animation: defaultPopAnimation())
 		} else {
@@ -205,7 +205,7 @@ public extension JSViewControllersStackManager {
 		}
 	}
 
-	public func popToRootViewController(animation: AnimationBlock?) {
+    func popToRootViewController(animation: AnimationBlock?) {
 		guard let rootViewController = viewControllers.first else { return }
 		guard let topViewController = topViewController else { return }
 		guard topViewController != rootViewController else { return }
@@ -213,7 +213,7 @@ public extension JSViewControllersStackManager {
 		pop(toViewController: rootViewController, animation: animation)
 	}
 
-	public func popToRootViewController(animated: Bool) {
+    func popToRootViewController(animated: Bool) {
 		if animated {
 			popToRootViewController(animation: defaultPopAnimation())
 		} else {
@@ -233,13 +233,13 @@ public extension JSViewControllersStackManager {
 		}
 	}
 
-	public func animatePush(_ animation: AnimationBlock) {
+    func animatePush(_ animation: AnimationBlock) {
 		let fromView = previousViewController?.view
 		let toView = topViewController?.view
 		animate(fromView: fromView, toView: toView, animation: animation)
 	}
 
-	public func animatePop(toView view: NSView?, animation: AnimationBlock) {
+    func animatePop(toView view: NSView?, animation: AnimationBlock) {
 		let fromView = topViewController?.view
 		let toView = view
 		animate(fromView: fromView, toView: toView, animation: animation)
