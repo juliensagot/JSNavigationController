@@ -59,19 +59,19 @@ class SecondViewController: JSViewController {
 		return [left, right, top, bottom]
 	}
 
-	func pushThirdViewController() {
+    @objc func pushThirdViewController() {
 		if let destinationViewController = destinationViewControllers["ThirdVC"] {
 			navigationController?.push(viewController: destinationViewController, animated: true)
 		}
 	}
 
-	func pushFourthViewController() {
+    @objc func pushFourthViewController() {
 		if let destinationViewController = destinationViewControllers["FourthVC"] {
 			navigationController?.push(viewController: destinationViewController, animated: true)
 		}
 	}
 
-	func popViewController() {
+    @objc func popViewController() {
 		navigationController?.popViewController(animated: true)
 	}
 }

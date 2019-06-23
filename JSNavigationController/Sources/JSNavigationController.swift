@@ -118,7 +118,7 @@ open class JSNavigationController: NSViewController, JSViewControllersStackManag
 
 		delegate?.navigationController(self, willShowViewController: viewController, animated: (contentAnimation != nil))
 		
-		let viewControllerPosition = viewControllers.index(of: viewController)
+        let viewControllerPosition = viewControllers.firstIndex(of: viewController)
 
 		// Add the new view
 		contentView?.addSubview(viewController.view, positioned: .below, relativeTo: topViewController.view)
