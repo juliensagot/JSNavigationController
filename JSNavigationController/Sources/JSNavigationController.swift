@@ -72,7 +72,14 @@ open class JSNavigationController: NSViewController, JSViewControllersStackManag
 		}
 
 		// Add the new view
-		contentView?.addSubview(viewController.view, positioned: .above, relativeTo: previousViewController?.view)
+		if let contentView = self.contentView
+		{
+			contentView.addSubview(viewController.view, positioned: .above, relativeTo: previousViewController?.view)
+			viewController.view.translatesAutoresizingMaskIntoConstraints = false
+			let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[view]-|", options: .alignAllCenterX, metrics: nil, views: ["view" : viewController.view])
+			let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[view]-|", options: .alignAllCenterX, metrics: nil, views: ["view" : viewController.view])
+			NSLayoutConstraint.activate(horizontalConstraints + verticalConstraints)
+		}
 
 		// NavigationBar
 		if let vc = viewController as? JSNavigationBarViewControllerProvider {
