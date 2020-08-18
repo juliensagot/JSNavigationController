@@ -76,8 +76,8 @@ open class JSNavigationController: NSViewController, JSViewControllersStackManag
 		{
 			contentView.addSubview(viewController.view, positioned: .above, relativeTo: previousViewController?.view)
 			viewController.view.translatesAutoresizingMaskIntoConstraints = false
-			let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[view]-|", options: .alignAllCenterX, metrics: nil, views: ["view" : viewController.view])
-			let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[view]-|", options: .alignAllCenterX, metrics: nil, views: ["view" : viewController.view])
+			let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: .alignAllCenterX, metrics: nil, views: ["view" : viewController.view])
+			let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: .alignAllCenterX, metrics: nil, views: ["view" : viewController.view])
 			NSLayoutConstraint.activate(horizontalConstraints + verticalConstraints)
 		}
 
