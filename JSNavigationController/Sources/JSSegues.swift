@@ -31,7 +31,7 @@ open class JSNavigationBarSegue: NSStoryboardSegue
 {
 	public override init(identifier: NSStoryboardSegue.Identifier, source sourceController: Any, destination destinationController: Any)
 	{
-		assert(identifier == JSViewController.NavigationBarSegueIdentifier, "Segue Identifier is not \"\(JSNavigationController.RootViewControllerSegueIdentifier)\"")
+		assert(identifier == JSViewController.NavigationBarSegueIdentifier, "Segue Identifier is not \"\(JSViewController.NavigationBarSegueIdentifier)\"")
 		assert(sourceController is JSViewController, "Source View Controller is not of type JSViewController")
 		assert((sourceController as! JSViewController).navigationBarVC == nil, "JSNavigationController cannot have multiple Navigation Bar Controllers")
 		super.init(identifier: identifier, source: sourceController, destination: destinationController)
