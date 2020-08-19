@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -651,10 +652,13 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <connections>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="OSI-Rz-Qw9"/>
+                        </connections>
                     </window>
                     <connections>
                         <segue destination="5mA-UW-7RL" kind="relationship" relationship="window.shadowedContentViewController" id="90O-PK-nvL"/>
@@ -673,7 +677,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9u3-au-na3">
-                                <rect key="frame" x="128" y="138" width="194" height="24"/>
+                                <rect key="frame" x="130" y="139" width="190" height="23"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="First View Controller" id="lyA-iu-ue1">
                                     <font key="font" metaFont="systemMedium" size="20"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -687,8 +691,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="OWN-rs-Ajs" kind="custom" identifier="navigationBarViewController" customClass="JSNavigationControllerSegue" customModule="JSNavigationController" id="WiH-Bq-gb0"/>
-                        <segue destination="T0K-O1-tI4" kind="custom" identifier="navigationControllerPush" customClass="JSNavigationControllerSegue" customModule="JSNavigationController" id="6jY-yp-IWR"/>
+                        <segue destination="OWN-rs-Ajs" kind="custom" identifier="Navigation Bar" customClass="JSNavigationBarSegue" customModule="JSNavigationController" id="WiH-Bq-gb0"/>
+                        <segue destination="T0K-O1-tI4" kind="custom" identifier="Second View Controller" customClass="JSPushSegue" customModule="JSNavigationController" id="6jY-yp-IWR"/>
                     </connections>
                 </viewController>
                 <customObject id="aGe-MJ-07R" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -704,7 +708,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dJC-RT-XrF">
-                                <rect key="frame" x="199" y="22" width="52" height="17"/>
+                                <rect key="frame" x="199" y="22" width="52" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="First VC" id="tIa-8M-tLd">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -712,7 +716,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FhG-UZ-bkj">
-                                <rect key="frame" x="375" y="12" width="69" height="32"/>
+                                <rect key="frame" x="375" y="13" width="69" height="32"/>
                                 <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wwd-B9-58R">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -766,7 +770,7 @@
                     <connections>
                         <outlet property="contentView" destination="BHF-8j-C0k" id="hld-ru-zzX"/>
                         <outlet property="navigationBarView" destination="Zt0-xw-0xf" id="oUI-g0-nZS"/>
-                        <segue destination="RdD-JG-Yxr" kind="custom" identifier="rootViewController" customClass="JSNavigationControllerSegue" customModule="JSNavigationController" id="MSj-Mn-OHf"/>
+                        <segue destination="RdD-JG-Yxr" kind="custom" identifier="Root View Controller" customClass="JSRootViewControllerSegue" customModule="JSNavigationController" id="MSj-Mn-OHf"/>
                     </connections>
                 </viewController>
                 <customObject id="BuC-UO-qDp" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -782,7 +786,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vzc-Sh-i6b">
-                                <rect key="frame" x="113" y="138" width="224" height="24"/>
+                                <rect key="frame" x="116" y="139" width="218" height="23"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Second View Controller" id="ujy-86-fcx">
                                     <font key="font" metaFont="systemMedium" size="20"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -796,9 +800,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="SeG-HN-fbt" kind="custom" identifier="navigationBarViewController" customClass="JSNavigationControllerSegue" customModule="JSNavigationController" id="rIX-cc-WXp"/>
-                        <segue destination="oV3-QB-h38" kind="custom" identifier="navigationControllerPush#ThirdVC" customClass="JSNavigationControllerSegue" customModule="JSNavigationController" id="sBI-mm-9Uj"/>
-                        <segue destination="7tf-gr-P0S" kind="custom" identifier="navigationControllerPush#FourthVC" customClass="JSNavigationControllerSegue" customModule="JSNavigationController" id="4aI-pA-rQO"/>
+                        <segue destination="SeG-HN-fbt" kind="custom" identifier="Navigation Bar" customClass="JSNavigationBarSegue" customModule="JSNavigationController" id="rIX-cc-WXp"/>
+                        <segue destination="oV3-QB-h38" kind="custom" identifier="Third View Controller" customClass="JSPushSegue" customModule="JSNavigationController" id="sBI-mm-9Uj"/>
+                        <segue destination="7tf-gr-P0S" kind="custom" identifier="Fourth View Controller" customClass="JSPushSegue" customModule="JSNavigationController" id="4aI-pA-rQO"/>
                     </connections>
                 </viewController>
                 <customObject id="ub5-KI-CaN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -814,7 +818,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ve8-Ju-1sY">
-                                <rect key="frame" x="190" y="22" width="71" height="17"/>
+                                <rect key="frame" x="190" y="22" width="71" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Second VC" id="9sI-VS-zoZ">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -829,7 +833,7 @@
                                 </buttonCell>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oYo-KI-O44">
-                                <rect key="frame" x="6" y="12" width="70" height="32"/>
+                                <rect key="frame" x="6" y="13" width="70" height="32"/>
                                 <buttonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RUO-1k-4aU">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -876,7 +880,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UgO-XR-Bju">
-                                <rect key="frame" x="124" y="138" width="202" height="24"/>
+                                <rect key="frame" x="127" y="139" width="197" height="23"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Third View Controller" id="mIG-Zr-1Ym">
                                     <font key="font" metaFont="systemMedium" size="20"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -890,7 +894,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="xWs-z7-Txg" kind="custom" identifier="navigationBarViewController" customClass="JSNavigationControllerSegue" customModule="JSNavigationController" id="WzP-Mw-OvO"/>
+                        <segue destination="xWs-z7-Txg" kind="custom" identifier="Navigation Bar" customClass="JSNavigationBarSegue" customModule="JSNavigationController" id="WzP-Mw-OvO"/>
                     </connections>
                 </viewController>
                 <customObject id="dFX-Xo-6fR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -906,7 +910,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DVy-HV-bVe">
-                                <rect key="frame" x="197" y="22" width="57" height="17"/>
+                                <rect key="frame" x="197" y="22" width="57" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Third VC" id="21l-mm-ojG">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -914,7 +918,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X9k-Uj-DyS">
-                                <rect key="frame" x="6" y="12" width="70" height="32"/>
+                                <rect key="frame" x="6" y="13" width="70" height="32"/>
                                 <buttonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FBM-nT-tE1">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -946,7 +950,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sfm-yg-JId">
-                                <rect key="frame" x="118" y="138" width="214" height="24"/>
+                                <rect key="frame" x="121" y="139" width="209" height="23"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Fourth View Controller" id="HNk-rZ-zqH">
                                     <font key="font" metaFont="systemMedium" size="20"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -960,7 +964,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="iPM-mo-vFm" kind="custom" identifier="navigationBarViewController" customClass="JSNavigationControllerSegue" customModule="JSNavigationController" id="MUJ-1y-QGo"/>
+                        <segue destination="iPM-mo-vFm" kind="custom" identifier="Navigation Bar" customClass="JSNavigationBarSegue" customModule="JSNavigationController" id="MUJ-1y-QGo"/>
                     </connections>
                 </viewController>
                 <customObject id="5Ms-97-Zan" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -976,7 +980,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AKO-Cl-ytO">
-                                <rect key="frame" x="192" y="22" width="66" height="17"/>
+                                <rect key="frame" x="192" y="22" width="66" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Fourth VC" id="dXJ-2j-84T">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -984,7 +988,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Itd-sl-S6n">
-                                <rect key="frame" x="6" y="12" width="70" height="32"/>
+                                <rect key="frame" x="6" y="13" width="70" height="32"/>
                                 <buttonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eMl-ID-cPc">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
