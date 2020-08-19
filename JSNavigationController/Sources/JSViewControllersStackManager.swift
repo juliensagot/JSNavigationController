@@ -217,7 +217,8 @@ public extension JSViewControllersStackManager
 		guard self.viewControllers.contains(viewController) else { return }
 		guard let rootViewController = self.viewControllers.first,
 			let topViewController = self.topViewController else { return }
-		guard topViewController != rootViewController else { return }
+		guard topViewController != rootViewController,
+			topViewController != viewController else { return }
 
 		let viewControllerPosition = self.viewControllers.firstIndex(of: viewController)
 

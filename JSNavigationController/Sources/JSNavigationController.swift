@@ -163,7 +163,8 @@ open class JSNavigationController: NSViewController, JSViewControllersStackManag
 		guard self.viewControllers.contains(viewController) else { return }
 		guard let rootViewController = self.viewControllers.first else { return }
 		guard let topViewController = self.topViewController else { return }
-		guard topViewController != rootViewController else { return }
+		guard topViewController != rootViewController,
+			topViewController != viewController else { return }
 
 		self.delegate?.navigationController(self, willShowViewController: viewController, animated: (contentAnimation != nil))
 		
